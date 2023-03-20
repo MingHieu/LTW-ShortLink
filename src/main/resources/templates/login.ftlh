@@ -1,0 +1,28 @@
+<#import "layouts/other.ftlh" as layout />
+
+<@layout.page>
+    <div class="container">
+        <form class="form" method="post">
+            <h2 class="form-title">Shorten Link</h2>
+            <div class="form-group">
+                <label for="email">Tên đăng nhập:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password-group">Mật khẩu:</label>
+                <div class="password-group">
+                    <input type="checkbox" id="password-toggle" checked hidden>
+                    <label for="password-toggle" class="control-label__show-password">
+                        <i class="fa-sharp fa-solid fa-eye show-icon"></i>
+                        <i class="fa-solid fa-eye-slash hide-icon"></i>
+                    </label>
+                    <input type="text" id="password" name="password" required>
+                </div>
+            </div>
+            <button type="submit" class="btn">Đăng nhập</button>
+            <#if errorMsg??>
+                <p class="error-message">{{errorMsg}}</p>
+            </#if>
+        </form>
+    </div>
+</@layout.page>
