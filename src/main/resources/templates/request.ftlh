@@ -1,0 +1,78 @@
+<#import "layouts/main.ftlh" as layout />
+
+<@layout.page role="user">
+    <div class="container">
+        <h1>Request</h1>
+
+        <div class="content">
+            <div class="account">
+                <div class="balance">
+                    <span><i class="fa-sharp fa-solid fa-dollar-sign"></i>1.000</span>
+                    <span>Balance</span>
+                </div>
+                <div class="spent">
+                    <span><i class="fa-sharp fa-solid fa-dollar-sign"></i>1.000</span>
+                    <span>Spent</span>
+                </div>
+            </div>
+            <div class="payment">
+                <form action="submit">
+                    <h2>Payment Details</h2>
+
+                    <div class="form-container">
+                        <div class="input-group">
+                            <input id="payment-method-card" type="radio" name="payment-method" value="card" checked="true" />
+                            <label for="payment-method-card">
+                                <span><i class="fa-brands fa-cc-visa"></i>Credit Card</span>
+                            </label>
+                            
+                            <input id="payment-method-paypal" type="radio" name="payment-method" value="paypal" />
+                            <label for="payment-method-paypal">
+                                <span><i class="fa-brands fa-cc-paypal"></i>Paypal</span>
+                            </label>
+                        </div>  
+
+                        <div class="input-group input-group-icon">
+                            <div class="input-icon"><i class="fa fa-credit-card"></i></div>
+                            <input type="text" placeholder="Card Number" />
+                        </div>
+
+                        <div class="col-wrapper">
+                            <div class="col-half">
+                                <div class="input-group input-group-icon">
+                                    <div class="input-icon"><i class="fa fa-user"></i></div>
+                                    <input type="text" placeholder="Card CVC" />
+                                </div>
+                            </div>
+
+                            <div class="col-half">
+                                <div class="input-group">
+                                    <select>
+                                        <option>01</option>
+                                        <option>02</option>
+                                    </select>
+                                    
+                                    <select>
+                                        <option>Jan</option>
+                                        <option>Jan</option>
+                                    </select>
+                                    
+                                    <select>
+                                        <option>2015</option>
+                                        <option>2016</option>
+                                    </select></div>
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <button type="submit" class="btn btn-primary">Pay</button>
+                        </div>
+                    </div>     
+                </form>
+            </div>    
+        </div>
+    </div>
+
+
+    
+</@layout.page>

@@ -52,8 +52,9 @@
             </#list>
         </#if>
 
-        <script src="/js/header.js"></script>
         <script src="/js/main.js"></script>
+        <script src="/js/header.js"></script>
+
 
         <#if data.js??>
             <script src="/js/${data.js}"></script>

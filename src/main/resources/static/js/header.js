@@ -25,3 +25,9 @@ userAvatarHeader.src =
 
 const usernameHeader = useQuery('.username-header');
 usernameHeader.innerHTML = cookies['username'];
+
+const navbar = useQuery(".nav-item")
+
+navbar.addEventListener("click", () => {
+  navbar.classList.add("nav-active")
+})

@@ -19,4 +19,51 @@ public class IndexController {
         mv.setViewName("home");
         return mv;
     }
+
+    @GetMapping("/my-urls")
+    public ModelAndView myUrls() {
+        ModelAndView mv = new ModelAndView();
+        ModelAndViewObject mvo = new ModelAndViewObject("My Urls", "my-urls.css");
+        mv.addObject(Utils.ModalAndViewObjectName, mvo);
+        mv.setViewName("my-urls");
+        return mv;
+    }
+
+    @GetMapping("/statistics")
+    public ModelAndView Statistics() {
+        ModelAndView mv = new ModelAndView();
+        ModelAndViewObject mvo = new ModelAndViewObject("Statistics", "statistics.css");
+        mv.addObject(Utils.ModalAndViewObjectName, mvo);
+        mv.setViewName("statistics");
+        return mv;
+    }
+
+    @GetMapping("/affiliate")
+    public ModelAndView linkAffiliate() {
+        ModelAndView mv = new ModelAndView();
+        ModelAndViewObject mvo = new ModelAndViewObject("Link Affiliate", "link-affiliate.css");
+        mv.addObject(Utils.ModalAndViewObjectName, mvo);
+        mv.setViewName("link-affiliate");
+
+        return mv;
+    }
+
+    @GetMapping("/amount")
+    public ModelAndView amount() {
+        ModelAndView mv = new ModelAndView();
+        ModelAndViewObject mvo = new ModelAndViewObject("Amount", "amount.css");
+        mv.addObject(Utils.ModalAndViewObjectName, mvo);
+        mv.setViewName("amount");
+        return mv;
+    }
+
+    @GetMapping("/request")
+    public ModelAndView request() {
+        ModelAndView mv = new ModelAndView();
+        ModelAndViewObject mvo = new ModelAndViewObject("Request", "request.css");
+        mv.addObject(Utils.ModalAndViewObjectName, mvo);
+        mv.setViewName("request");
+        return mv;
+    }
+
 }

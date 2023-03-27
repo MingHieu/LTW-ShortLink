@@ -1,17 +1,45 @@
 <div class="nav-container">
-    <nav>
-        <div>
-            <a href="/">
-                <h1>Shorten Link</h1>
-            </a>
-            <a href="/"><i class="fa-solid fa-house"></i>Trang chủ</a>
-        </div>
-        <div>
-            <a href="/profile" style="padding-inline:0">
-                <img class="user-avatar-header" src="/images/default-user.jpeg" alt="User Avatar">
-                <span class="username-header"></span>
-            </a>
-            <a href="/signout"><i class="fa-solid fa-right-from-bracket"></i>Đăng xuất</a>
-        </div>
-    </nav>
+  <nav>
+    <div>
+      <a href="/">
+        <h1>Shorten Link</h1>
+      </a>
+      <a href="/" class="nav-item"
+        ><i class="fa-solid fa-house"></i>Dashboard</a
+      >
+      <a href="/my-urls" class="nav-item"
+        ><i class="fa-solid fa-link"></i>My URLs</a
+      >
+      <a href="/statistics" class="nav-item"
+        ><i class="fa-solid fa-chart-simple"></i>Statistics</a
+      >
+      <a href="/affiliate" class="nav-item"
+        ><i class="fa-sharp fa-solid fa-link-simple-slash"></i>Link affiliate</a
+      >
+      <a href="/amount" class="nav-item"
+        ><i class="fa-solid fa-wallet"></i>Amount</a
+      >
+      <a href="/request" class="nav-item"
+        ><i class="fa-regular fa-money-simple-from-bracket"></i>Request</a
+      >
+    </div>
+    <div>
+      <a href="/profile" style="padding-inline: 0">
+        <img
+          class="user-avatar-header"
+          src="/images/default-user.jpeg"
+          alt="User Avatar"
+        />
+        <span class="username-header"></span>
+      </a>
+      <div style="display: flex; justify-content: space-between">
+        <a style="flex: 1; width: auto" href="/logup"> Log up </a>
+        <a style="flex: 1; width: auto" href="/login"> Log in </a>
+      </div>
+
+      <a href="/signout"
+        ><i class="fa-solid fa-right-from-bracket"></i>Đăng xuất</a
+      >
+    </div>
+  </nav>
 </div>

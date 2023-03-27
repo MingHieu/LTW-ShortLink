@@ -36,6 +36,19 @@ header {
   position: sticky;
 }
 
+.nav-item {
+  justify-content: start !important;
+}
+
+.nav-container nav a {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-active {
+  background-color: aqua;
+}
+
 nav {
   position: fixed;
   height: 100%;
@@ -68,7 +81,7 @@ nav a i {
   font-size: 18px;
 }
 
-nav a:not(:first-child):not([href='/signout']):hover {
+nav a:not([href="/profile"]):not([href="/signOut"]):hover {
   background-color: #ddd;
   border-radius: 10px;
 }
@@ -80,7 +93,7 @@ nav a:not(:first-child):not([href='/signout']):hover {
   margin-right: 10px;
 }
 
-a[href='/signout'] {
+a[href="/signOut"] {
   background-color: #ff0000e6;
   color: #fff;
 }
