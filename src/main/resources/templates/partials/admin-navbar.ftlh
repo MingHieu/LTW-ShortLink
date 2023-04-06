@@ -1,29 +1,19 @@
 <div class="nav-container">
   <nav>
     <div>
-      <a href="/">
+      <a th:href="@{/}">
         <h1>Shorten Link</h1>
       </a>
-      <a href="/"><i class="fa-solid fa-house"></i>Home</a>
-      <a href="/my-urls"><i class="fa-solid fa-link"></i>My URLs</a>
-      <a href="/statistics"
-        ><i class="fa-solid fa-chart-simple"></i>Statistics</a
-      >
+      <a th:href="@{/}"><i class="fa-solid fa-house"></i>Home</a>
+      <a th:href="@{/my-urls}"><i class="fa-solid fa-link"></i>My URLs</a>
+      <a th:href="@{/statistics}"><i class="fa-solid fa-chart-simple"></i>Statistics</a>
     </div>
     <div>
-      <a href="/profile" style="padding-inline: 0">
-        <img
-          class="user-avatar-header"
-          src="/images/default-user.jpeg"
-          alt="User Avatar"
-        />
+      <a th:href="@{/profile}" style="padding-inline: 0">
+        <img class="user-avatar-header" th:src="@{/images/default-user.jpeg}" alt="User Avatar" />
         <span class="username-header"></span>
       </a>
-      <a href="/signout"
-        ><i class="fa-solid fa-right-from-bracket"></i>Đăng xuất</a
-      >
+      <a th:href="@{/signout}"><i class="fa-solid fa-right-from-bracket"></i>Đăng xuất</a>
     </div>
   </nav>
 </div>
-
-

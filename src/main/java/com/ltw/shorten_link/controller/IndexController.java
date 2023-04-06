@@ -33,9 +33,11 @@ public class IndexController {
     public ModelAndView Statistics() {
         ModelAndView mv = new ModelAndView();
         ModelAndViewObject mvo = new ModelAndViewObject("Statistics", "statistics.css");
+        mvo.setJsLibrary(new String[] { "<script src='https://cdn.jsdelivr.net/npm/chart.js'></script>" });
         mv.addObject(Utils.ModalAndViewObjectName, mvo);
         mv.setViewName("statistics");
         return mv;
+
     }
 
     @GetMapping("/affiliate")

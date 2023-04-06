@@ -1,4 +1,4 @@
-table {
+/* table {
   border-collapse: collapse;
   width: 100%;
   margin-top: 2rem;
@@ -47,4 +47,109 @@ tr td:last-child {
 
 tr:nth-child(even) {
   background-color: bisque;
+}
+
+ */
+
+header {
+  background-color: #3f51b5;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+section {
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+
+.filter label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.filter input[type="date"] {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: #eee;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+
+.filter button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3f51b5;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter button:hover {
+  background-color: #1a237e;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 12px;
+}
+
+th {
+  background-color: #f44336;
+  color: #fff;
+}
+
+td {
+  border: 1px solid #ddd;
+}
+
+tfoot td {
+  background-color: #eee;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table thead {
+    display: none;
+  }
+
+  table tbody td {
+    display: block;
+    border: none;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  table tbody td:before {
+    position: absolute;
+    left: 6px;
+    content: attr(data-label);
+    font-weight: bold;
+  }
+
+  table tbody td:last-child:before {
+    content: "Earnings:";
+  }
 }

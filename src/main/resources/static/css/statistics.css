@@ -1,0 +1,12 @@
+.chart-container {
+  max-width: 800px;
+}
+
+#lineChart {
+  margin-top: 4rem;
+}
+
+canvas {
+  width: 100%;
+  height: auto;
+}

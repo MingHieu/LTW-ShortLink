@@ -1,0 +1,89 @@
+
+    <#import "layouts/main.html" as layout />
+    
+    <@layout.page role="user">
+        <div class="create-new container">
+            <section class="title-wrapper">
+                <h1>Create new</h1>
+            </section>
+    
+            <section class="create-new-link-container">
+                <div class="destination-url-container">
+                    <label class="orb-top-label" id="" for="">Destination</label>
+                    <div class="input-field">
+                        <input type="text" class="input" placeholder="https://www.my_urls.com" autocomplete="off" value="">
+                    </div>
+                </div>
+    
+                <div class="title-container">
+                    <label class="orb-top-label" id="" for="">Title(optional)</label>
+                    <div class="input-field">
+                        <input type="text" class="input" placeholder="" autocomplete="off" value="">
+                    </div>
+                </div>
+            </section>
+    
+            <section class="button-group">
+                <button class="orb-button btn-cancel" type="button">Cancel</button>
+                <button class="orb-button primary-btn" type="button">Create</button>
+            </section>
+    
+            <section class="content">
+                <h2>Simple and fast URL shortener!</h2>
+                <p>
+                    ShortURL allows to reduce long links from
+                    <a href="https://www.instagram.com/" target="_blank">Instagram</a>,
+                    <a href="https://www.facebook.com/" target="_blank">Facebook</a>,
+                    <a href="https://www.youtube.com/" target="_blank">YouTube</a>,
+                    <a href="https://www.twitter.com/" target="_blank">Twitter</a>,
+                    <a href="https://www.linkedin.com/" target="_blank">Linked In</a> and sites
+                    with authority on the Internet. Just paste the long URL and click the Shorten
+                    URL button. On the next screen, copy the shortened URL and share it on
+                    websites, chat and emails. After shortening the URL, check
+                    <a href="url-click-counter.php">how many clicks it received</a>.
+                </p>
+                <h2>Shorten, share and track</h2>
+                <p>
+                    Your shortened URLs can be used in publications, documents, advertisements,
+                    blogs, forums, instant messages, and other locations. Track statistics for
+                    your business and projects by monitoring the number of hits from your URL with
+                    the click counter.
+                </p>
+            </section>
+    
+            <section>
+                <div class="box">
+                    <div class="item">
+                        <i class="fa-light fa-thumbs-up"></i>
+                        <h3>Easy</h3>
+                        <p>ShortURL is easy and fast, enter the long link to get your shortened link</p>
+                    </div>
+                    <div class="item">
+                        <i class="fa-light fa-link"></i>
+                        <h3>Shortened</h3>
+                        <p>Use any link, no matter what size, ShortURL always shortens</p>
+                    </div>
+                    <div class="item">
+                        <i class="fa-light fa-shield-check"></i>
+                        <h3>Security</h3>
+                        <p>It is fast and secure, our service have HTTPS protocol and data encryption</p>
+                    </div>
+                    <div class="item">
+                        <i class="fa-light fa-magnifying-glass-chart"></i>
+                        <h3>Statistics</h3>
+                        <p>Check the amount of clicks that your shortened URL received</p>
+                    </div>
+                    <div class="item">
+                        <i class="fa-light fa-hand"></i>
+                        <h3>Reliable</h3>
+                        <p>All links that try to disseminate spam, viruses and malware are deleted</p>
+                    </div>
+                    <div class="item">
+                        <i class="fa-light fa-computer-speaker"></i>
+                        <h3>Devices</h3>
+                        <p>Compatible with smartphones, tablets and desktop</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </@layout.page>

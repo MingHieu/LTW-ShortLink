@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${data.title}"></title>
+    <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css" rel="stylesheet"
+        type="text/css" />
+    <th:block th:if="${data.cssLibrary}">
+        <th:block th:each="css : ${data.cssLibrary}">
+            <link rel="stylesheet" th:href="${css}" />
+        </th:block>
+    </th:block>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <th:block th:if="${data.css}">
+        <link rel="stylesheet" th:href="@{/css/__${data.css}__}" />
+    </th:block>
+</head>
+
+<body>
+    <header th:replace="../partials/header :: header"></header>
+
+    <div class="body">
+        <div class="main-container">
+            <nav th:switch="${role}">
+                <div th:case="'admin'" th:replace="../partials/admin-navbar :: admin-navbar"></div>
+                <div th:case="'enterprise'" th:replace="../partials/enterprise-navbar :: enterprise-navbar"></div>
+                <div th:case="'user'" th:replace="../partials/user-navbar :: user-navbar"></div>
+            </nav>
+            <main th:fragment="content">
+                <th:block th:replace="${content}" />
+            </main>
+        </div>
+    </div>
+
+    <th:block th:if="${data.jsLibrary}">
+        <th:block th:each="js : ${data.jsLibrary}">
+            <script th:src="${js}"></script>
+        </th:block>
+    </th:block>
+    <script src="/js/main.js"></script>
+    <script src="/js/header.js"></script>
+    <script src="/js/home.js"></script>
+
+    <th:block th:if="${data.js}">
+        <script src="/js/__${data.js}__"></script>
+    </th:block>
+</body>
+
+</html>
