@@ -15,25 +15,27 @@
             <link rel="stylesheet" th:href="${css}" />
         </th:block>
     </th:block>
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" type="text/css" href="@{/css/main.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/header.css">
+
     <th:block th:if="${data.css}">
         <link rel="stylesheet" th:href="@{/css/__${data.css}__}" />
-    </th:block>
 </head>
 
 <body>
-    <header th:replace="../partials/header :: header"></header>
+    <header th:replace="partials/header :: header"></header>
 
     <div class="body">
         <div class="main-container">
             <nav th:switch="${role}">
-                <div th:case="'admin'" th:replace="../partials/admin-navbar :: admin-navbar"></div>
-                <div th:case="'enterprise'" th:replace="../partials/enterprise-navbar :: enterprise-navbar"></div>
-                <div th:case="'user'" th:replace="../partials/user-navbar :: user-navbar"></div>
+                <div th:case="'admin'" th:replace="partials/admin-navbar :: admin-navbar"></div>
+                <div th:case="'enterprise'" th:replace="partials/enterprise-navbar :: enterprise-navbar"></div>
+                <div th:case="'user'" th:replace="partials/user-navbar :: user-navbar"></div>
             </nav>
-            <main th:fragment="content">
-                <th:block th:replace="${content}" />
+            <main>
+                <div layout:fragment="content">
+                </div>
+                <!-- <th:block th:replace="${content}" /> -->
             </main>
         </div>
     </div>
