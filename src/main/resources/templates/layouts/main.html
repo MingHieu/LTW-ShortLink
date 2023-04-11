@@ -19,7 +19,7 @@
     </th:block>
 
     <th:block th:if="${data.css}">
-        <link rel="stylesheet" th:href="@{/css/__${data.css}__}" />
+        <link rel="stylesheet" th:href="@{/css/} + ${data.css}" />
 </head>
 
 <body>
@@ -27,15 +27,19 @@
 
     <div class="body">
         <div class="main-container">
-            <nav th:switch="${role}">
-                <div th:case="'admin'" th:replace="partials/admin-navbar :: admin-navbar"></div>
-                <div th:case="'enterprise'" th:replace="partials/enterprise-navbar :: enterprise-navbar"></div>
-                <div th:case="'user'" th:replace="partials/user-navbar :: user-navbar"></div>
-            </nav>
+            <th:block th:if="${role}">
+                <nav th:switch="${role}">
+                    <div th:case="'admin'" th:replace="partials/admin-navbar :: admin-navbar"></div>
+                    <div th:case="'enterprise'" th:replace="partials/enterprise-navbar :: enterprise-navbar"></div>
+                    <div th:case="'user'" th:replace="partials/user-navbar :: user-navbar"></div>
+                </nav>
+            </th:block>
+            <th:block th:unless="${role}">
+                <div th:replace="partials/user-navbar :: user-navbar"></div>
+            </th:block>
             <main>
                 <div layout:fragment="content">
                 </div>
-                <!-- <th:block th:replace="${content}" /> -->
             </main>
         </div>
     </div>
@@ -47,10 +51,9 @@
     </th:block>
     <script src="/js/main.js"></script>
     <script src="/js/header.js"></script>
-    <script src="/js/home.js"></script>
 
     <th:block th:if="${data.js}">
-        <script src="/js/__${data.js}__"></script>
+        <script th:src="@{/js/} + ${data.js}"></script>
     </th:block>
 </body>
 
