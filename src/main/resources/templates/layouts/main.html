@@ -10,13 +10,13 @@
     <title th:text="${data.title}"></title>
     <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css" rel="stylesheet"
         type="text/css" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
     <th:block th:if="${data.cssLibrary}">
         <th:block th:each="css : ${data.cssLibrary}">
             <link rel="stylesheet" th:href="${css}" />
         </th:block>
     </th:block>
-    <link rel="stylesheet" type="text/css" href="@{/css/main.css}">
-    <link rel="stylesheet" type="text/css" href="../static/css/header.css">
 
     <th:block th:if="${data.css}">
         <link rel="stylesheet" th:href="@{/css/__${data.css}__}" />
