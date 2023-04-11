@@ -7,5 +7,5 @@ import com.ltw.shorten_link.entities.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-
+    User findByUsername(String username);
 }
