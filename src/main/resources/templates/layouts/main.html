@@ -14,12 +14,12 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
     <th:block th:if="${data.cssLibrary}">
         <th:block th:each="css : ${data.cssLibrary}">
-            <link rel="stylesheet" th:href="${css}" />
+            <link rel="stylesheet" type="text/css" th:href="${css}" />
         </th:block>
     </th:block>
 
     <th:block th:if="${data.css}">
-        <link rel="stylesheet" th:href="@{/css/} + ${data.css}" />
+        <link rel="stylesheet" type="text/css" th:href="@{/css/} + ${data.css}" />
     </th:block>
 </head>
 
@@ -28,19 +28,19 @@
 
     <div class="body">
         <!-- <div> -->
-            <th:block th:if="${role}">
-                <nav th:switch="${role}">
-                    <div th:case="'admin'" th:replace="partials/admin-navbar :: admin-navbar"></div>
-                    <div th:case="'enterprise'" th:replace="partials/enterprise-navbar :: enterprise-navbar"></div>
-                    <div th:case="'user'" th:replace="partials/user-navbar :: user-navbar"></div>
-                </nav>
-            </th:block>
-            <th:block th:unless="${role}">
-                <div th:replace="partials/user-navbar :: user-navbar"></div>
-            </th:block>
-            <div th:fragment="main-container" class='main-container'>
-                <div th:replace="::content"></div>
-            </div>
+        <th:block th:if="${role}">
+            <nav th:switch="${role}">
+                <div th:case="'admin'" th:replace="partials/admin-navbar :: admin-navbar"></div>
+                <div th:case="'enterprise'" th:replace="partials/enterprise-navbar :: enterprise-navbar"></div>
+                <div th:case="'user'" th:replace="partials/user-navbar :: user-navbar"></div>
+            </nav>
+        </th:block>
+        <th:block th:unless="${role}">
+            <div th:replace="partials/user-navbar :: user-navbar"></div>
+        </th:block>
+        <div th:fragment="main-container" class='main-container'>
+            <div th:replace="::content"></div>
+        </div>
         <!-- </div> -->
     </div>
 
