@@ -20,13 +20,14 @@
 
     <th:block th:if="${data.css}">
         <link rel="stylesheet" th:href="@{/css/} + ${data.css}" />
+    </th:block>
 </head>
 
 <body>
     <header th:replace="partials/header :: header"></header>
 
     <div class="body">
-        <div class="main-container">
+        <div>
             <th:block th:if="${role}">
                 <nav th:switch="${role}">
                     <div th:case="'admin'" th:replace="partials/admin-navbar :: admin-navbar"></div>

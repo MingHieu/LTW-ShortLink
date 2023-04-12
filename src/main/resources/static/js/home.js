@@ -77,4 +77,4 @@ const config = {
   },
 }
 
-const myChart = new Chart(document.getElementById("lineChart"), config)
+// const myChart = new Chart(document.getElementById("lineChart"), config)

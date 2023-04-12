@@ -1,28 +1,42 @@
-<#import "layouts/other.ftlh" as layout />
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-<@layout.page>
-    <div class="container">
-        <form class="form" method="post">
-            <h2 class="form-title">Shorten Link</h2>
-            <div class="form-group">
-                <label for="email">Tên đăng nhập:</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="password-group">Mật khẩu:</label>
-                <div class="password-group">
-                    <input type="checkbox" id="password-toggle" checked hidden>
-                    <label for="password-toggle" class="control-label__show-password">
-                        <i class="fa-sharp fa-solid fa-eye show-icon"></i>
-                        <i class="fa-solid fa-eye-slash hide-icon"></i>
-                    </label>
-                    <input type="text" id="password" name="password" required>
-                </div>
-            </div>
-            <button type="submit" class="btn">Đăng nhập</button>
-            <#if errorMsg??>
-                <p class="error-message">{{errorMsg}}</p>
-            </#if>
-        </form>
-    </div>
-</@layout.page>
+<head th:replace="layouts/main :: head"></head>
+
+<body th:replace="layouts/main :: body">
+  <div class="main">
+
+    <form action="" method="POST" class="form" id="register-form">
+      <h3 class="heading">Shorten Link</h3>
+
+      <div class="spacer"></div>
+
+      <div class="form-group">
+        <label for="username" class="form-label">Tên tài khoản</label>
+        <input id="username" name="username" type="text" rules="required" placeholder="VD: minhtan"
+          class="form-control">
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="form-label">Mật khẩu</label>
+        <input id="password" name="password" type="password" rules="required|min:8" placeholder="VD: 12345678"
+          class="form-control">
+        <span class="form-message"></span>
+      </div>
+
+      <button class="form-submit">Đăng nhập</button>
+    </form>
+  </div>
+
+  <script src="./validator.js"></script>
+  <script>
+    Validator('#login-form', {
+      onSubmit: (data) => { console.log(data) }
+    })
+  </script>
+</body>
+
+</html>
