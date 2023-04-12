@@ -27,7 +27,7 @@
     <header th:replace="partials/header :: header"></header>
 
     <div class="body">
-        <div>
+        <!-- <div> -->
             <th:block th:if="${role}">
                 <nav th:switch="${role}">
                     <div th:case="'admin'" th:replace="partials/admin-navbar :: admin-navbar"></div>
@@ -38,10 +38,10 @@
             <th:block th:unless="${role}">
                 <div th:replace="partials/user-navbar :: user-navbar"></div>
             </th:block>
-            <div th:fragment="main-container">
+            <div th:fragment="main-container" class='main-container'>
                 <div th:replace="::content"></div>
             </div>
-        </div>
+        <!-- </div> -->
     </div>
 
     <th:block th:if="${data.jsLibrary}">

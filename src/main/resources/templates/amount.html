@@ -7,8 +7,7 @@
 <head th:replace="layouts/main :: head"></head>
 
 <body th:replace="layouts/main :: body">
-
-	<div class="container" layout:fragment="content">
+	<div th:replace="~{layouts/main :: main(~{::content})}">
 		<div class="title-wrapper">
 			<h1>Amount</h1>
 		</div>
