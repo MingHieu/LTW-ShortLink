@@ -114,3 +114,6 @@ button {
 .btn:hover {
   background: var(--primary-background-hover);
 }
+b, strong {
+  font-weight: bold;
+}

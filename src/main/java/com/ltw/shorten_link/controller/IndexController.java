@@ -11,10 +11,20 @@ import com.ltw.shorten_link.model.ModelAndViewObject;
 public class IndexController {
 
     @GetMapping("/")
+    public ModelAndView dashboard() {
+        ModelAndView mv = new ModelAndView();
+        ModelAndViewObject mvo = new ModelAndViewObject("Trang chủ", "dashboard.css");
+        mvo.setJs("home.js");
+        mv.addObject(Utils.ModalAndViewObjectName, mvo);
+        mv.setViewName("dashboard");
+        return mv;
+    }
+
+    @GetMapping("/home")
     public ModelAndView home() {
         ModelAndView mv = new ModelAndView();
-        ModelAndViewObject mvo = new ModelAndViewObject("Trang chủ", "home.css");
-        mvo.setJs("home.js");
+        ModelAndViewObject mvo = new ModelAndViewObject("Shorten Link", "home.css");
+        // mvo.setJs("home.js");
         mv.addObject(Utils.ModalAndViewObjectName, mvo);
         mv.setViewName("home");
         return mv;
@@ -33,7 +43,7 @@ public class IndexController {
     public ModelAndView Statistics() {
         ModelAndView mv = new ModelAndView();
         ModelAndViewObject mvo = new ModelAndViewObject("Statistics", "statistics.css");
-        mvo.setJsLibrary(new String[] { "<script src='https://cdn.jsdelivr.net/npm/chart.js'></script>" });
+        mvo.setJsLibrary(new String[] { "https://cdn.jsdelivr.net/npm/chart.js" });
         mv.addObject(Utils.ModalAndViewObjectName, mvo);
         mv.setViewName("statistics");
         return mv;
