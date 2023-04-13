@@ -47,6 +47,7 @@ public class SecurityConfiguration {
         http.csrf(withDefaults())
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/login*").permitAll()
+                        .requestMatchers("/images/**").permitAll()
                         .requestMatchers("/js/**").permitAll()
                         .requestMatchers("/css/**").permitAll()
                         // .requestMatchers("/**").hasRole("user")
@@ -55,7 +56,7 @@ public class SecurityConfiguration {
                 .formLogin(login -> login
                         .loginPage("/login").permitAll()
                         .loginProcessingUrl("/signup")
-                        .defaultSuccessUrl("/home"));
+                        .defaultSuccessUrl("/"));
         return http.build();
     }
 }
