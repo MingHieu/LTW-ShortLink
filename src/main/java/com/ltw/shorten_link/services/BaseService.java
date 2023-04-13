@@ -11,7 +11,6 @@ import com.ltw.shorten_link.services.interfaces.BaseServiceInterface;
 @Service
 public class BaseService<T> implements BaseServiceInterface<T> {
 
-    @Autowired
     JpaRepository<T, Long> repository;
 
     @Override

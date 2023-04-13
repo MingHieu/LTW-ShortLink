@@ -26,9 +26,9 @@ public class AuthController {
         return mv;
     }
 
-    @PostMapping("/login")
-    public ModelAndView renderSignup(@RequestBody String username) {
-        ModelAndView mv = new ModelAndView();
-        return mv;
-    }
+    // @PostMapping("/login")
+    // public ModelAndView renderSignup(@RequestBody String username) {
+    //     ModelAndView mv = new ModelAndView();
+    //     return mv;
+    // }
 }

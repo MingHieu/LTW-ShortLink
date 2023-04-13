@@ -14,6 +14,8 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import com.ltw.shorten_link.Configuration.Services.UserDetailServiceImplement;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
@@ -42,15 +44,17 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
+        http.csrf(withDefaults())
                 .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers("/login*").permitAll()
                         .requestMatchers("/js/**").permitAll()
                         .requestMatchers("/css/**").permitAll()
-                        .requestMatchers("/admin/**").hasRole("admin")
-                        .requestMatchers("/**").hasRole("user")
+                        // .requestMatchers("/**").hasRole("user")
+                        // .requestMatchers("/admin/**").hasRole("admin")
                         .anyRequest().authenticated())
                 .formLogin(login -> login
                         .loginPage("/login").permitAll()
+                        .loginProcessingUrl("/signup")
                         .defaultSuccessUrl("/home"));
         return http.build();
     }
