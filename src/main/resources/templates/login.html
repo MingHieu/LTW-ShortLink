@@ -3,10 +3,10 @@
   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-<head th:replace="layouts/main :: head"></head>
+<head th:replace="layouts/other :: head"></head>
 
-<body th:replace="layouts/main :: body">
-  <div th:replace="~{layouts/main :: main(~{::content})}">
+<body th:replace="layouts/other :: body">
+  <div th:replace="~{layouts/other :: other(~{::content})}">
 
     <div class="main" th:fragment="content">
 
