@@ -1,5 +1,8 @@
 package com.ltw.shorten_link.controller;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,10 +25,15 @@ public class IndexController {
 
     @GetMapping("/home")
     public ModelAndView home() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String role = authentication.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .findFirst().get();
         ModelAndView mv = new ModelAndView();
         ModelAndViewObject mvo = new ModelAndViewObject("Shorten Link", "home.css");
         // mvo.setJs("home.js");
         mv.addObject(Utils.ModalAndViewObjectName, mvo);
+        mv.addObject("role", role);
         mv.setViewName("home");
         return mv;
     }

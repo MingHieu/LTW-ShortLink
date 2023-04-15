@@ -29,10 +29,17 @@
     <div class="body">
         <!-- <div> -->
         <th:block th:if="${role}">
+            <div th:text="${role}"></div>
             <nav th:switch="${role}">
-                <div th:case="'admin'" th:replace="partials/admin-navbar :: admin-navbar"></div>
-                <div th:case="'enterprise'" th:replace="partials/enterprise-navbar :: enterprise-navbar"></div>
-                <div th:case="'user'" th:replace="partials/user-navbar :: user-navbar"></div>
+                <div th:case="'admin'">
+                    <div th:replace="partials/admin-navbar :: admin-navbar"></div>
+                </div>
+                <div th:case="'enterprise'">
+                    <div th:replace="partials/enterprise-navbar :: enterprise-navbar"></div>
+                </div>
+                <div th:case="'user'">
+                    <div th:replace="partials/user-navbar :: user-navbar"></div>
+                </div>
             </nav>
         </th:block>
         <th:block th:unless="${role}">
