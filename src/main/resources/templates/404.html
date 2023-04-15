@@ -1,26 +1,11 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/main.html">
-
-
-<head th:replace="layouts/main :: head"></head>
-
-<body th:replace="layouts/main :: body">
-    <div th:replace="~{layouts/main :: main(~{::content})}">
-        <div class="main" th:fragment="content">
-            <div class="flex-container" th:fragment="404">
-                <div class="text-center">
-                    <h1>
-                        <span class="fade-in" id="digit1">4</span>
-                        <span class="fade-in" id="digit2">0</span>
-                        <span class="fade-in" id="digit3">4</span>
-                    </h1>
-                    <h3 class="fadeIn">Trang không có sẵn</h3>
-                    <a href="/">Trở về trang chủ</a>
-                </div>
-            </div>
-        </div>
-</body>
-
-</html>
+<div class="flex-container" th:fragment="404">
+    <div class="text-center">
+        <h1>
+            <span class="fade-in" id="digit1">4</span>
+            <span class="fade-in" id="digit2">0</span>
+            <span class="fade-in" id="digit3">4</span>
+        </h1>
+        <h3 class="fadeIn">Trang không có sẵn</h3>
+        <a href="/">Trở về trang chủ</a>
+    </div>
+</div>

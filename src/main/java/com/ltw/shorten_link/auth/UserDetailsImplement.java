@@ -1,4 +1,4 @@
-package com.ltw.shorten_link.Configuration.Services;
+package com.ltw.shorten_link.auth;
 
 import java.util.ArrayList;
 import java.util.Collection;

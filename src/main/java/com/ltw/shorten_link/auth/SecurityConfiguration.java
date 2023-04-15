@@ -1,4 +1,4 @@
-package com.ltw.shorten_link.Configuration;
+package com.ltw.shorten_link.auth;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -11,8 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-
-import com.ltw.shorten_link.Configuration.Services.UserDetailServiceImplement;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -57,7 +55,7 @@ public class SecurityConfiguration {
                 .formLogin(login -> login
                         .loginPage("/login").permitAll()
                         .loginProcessingUrl("/signup")
-                        .defaultSuccessUrl("/home"));
+                        .defaultSuccessUrl("/"));
         return http.build();
     }
 }

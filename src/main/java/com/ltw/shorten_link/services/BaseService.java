@@ -4,7 +4,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-import com.ltw.shorten_link.model.Pagination;
+import com.ltw.shorten_link.interfaces.Pagination;
 import com.ltw.shorten_link.services.interfaces.BaseServiceInterface;
 
 @Service

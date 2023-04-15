@@ -1,34 +1,23 @@
 package com.ltw.shorten_link.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ltw.shorten_link.Utils;
-import com.ltw.shorten_link.model.ModelAndViewObject;
-import com.ltw.shorten_link.services.UserService;
+import com.ltw.shorten_link.interfaces.ModelAndViewObject;
+
+import lombok.RequiredArgsConstructor;
 
 @Controller
+@RequiredArgsConstructor
 public class AuthController {
-
-    @Autowired
-    private UserService userService;
 
     @GetMapping("/login")
     public ModelAndView renderLogin() {
-        ModelAndView mv = new ModelAndView();
-        ModelAndViewObject mvo = new ModelAndViewObject("Đăng nhập", "login.css");
+        ModelAndView mv = new ModelAndView("layouts/other");
+        ModelAndViewObject mvo = new ModelAndViewObject("login", "Đăng nhập", "login.css");
         mv.addObject(Utils.ModalAndViewObjectName, mvo);
-        mv.setViewName("login");
         return mv;
     }
-
-    // @PostMapping("/login")
-    // public ModelAndView renderSignup(@RequestBody String username) {
-    //     ModelAndView mv = new ModelAndView();
-    //     return mv;
-    // }
 }

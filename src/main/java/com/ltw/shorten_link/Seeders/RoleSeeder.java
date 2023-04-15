@@ -1,4 +1,4 @@
-package com.ltw.shorten_link.Seeders;
+package com.ltw.shorten_link.seeders;
 
 import java.util.ArrayList;
 import java.util.List;
