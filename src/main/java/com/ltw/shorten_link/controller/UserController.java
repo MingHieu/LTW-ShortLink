@@ -14,8 +14,16 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
     @GetMapping("/")
     public ModelAndView home() {
+        ModelAndView mv = new ModelAndView("layouts/other");
+        ModelAndViewObject mvo = new ModelAndViewObject("home", "Shorten Link", "home.css");
+        mv.addObject(Utils.ModalAndViewObjectName, mvo);
+        return mv;
+    }
+
+    @GetMapping("/dashboard")
+    public ModelAndView dashboard() {
         ModelAndView mv = new ModelAndView("layouts/main");
-        ModelAndViewObject mvo = new ModelAndViewObject("dashboard", "Shorten Link", "home.css");
+        ModelAndViewObject mvo = new ModelAndViewObject("dashboard", "Shorten Link", "dashboard.css");
         mv.addObject(Utils.ModalAndViewObjectName, mvo);
         return mv;
     }

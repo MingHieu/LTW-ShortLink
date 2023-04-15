@@ -16,7 +16,6 @@ public class ErrorHandlingController implements ErrorController {
         ModelAndView mv = new ModelAndView("layouts/other");
         ModelAndViewObject mvo = new ModelAndViewObject("404", "Không tìm thấy", "404.css");
         mv.addObject(Utils.ModalAndViewObjectName, mvo);
-        mv.setViewName("404");
         return mv;
     }
 }
