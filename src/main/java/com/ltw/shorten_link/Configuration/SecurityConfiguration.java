@@ -46,6 +46,7 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(withDefaults())
                 .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers("/*").permitAll()
                         .requestMatchers("/login*").permitAll()
                         .requestMatchers("/images/**").permitAll()
                         .requestMatchers("/js/**").permitAll()

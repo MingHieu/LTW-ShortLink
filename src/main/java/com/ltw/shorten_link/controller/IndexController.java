@@ -14,6 +14,21 @@ import com.ltw.shorten_link.model.ModelAndViewObject;
 public class IndexController {
 
     @GetMapping("/")
+    public ModelAndView home() {
+        // Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        // String role = authentication.getAuthorities().stream()
+        //         .map(GrantedAuthority::getAuthority)
+        //         .findFirst().get();
+        ModelAndView mv = new ModelAndView();
+        ModelAndViewObject mvo = new ModelAndViewObject("Shorten Link", "home.css");
+        // mvo.setJs("home.js");
+        mv.addObject(Utils.ModalAndViewObjectName, mvo);
+        // mv.addObject("role", role);
+        mv.setViewName("home");
+        return mv;
+    }
+
+    @GetMapping("/dashboard")
     public ModelAndView dashboard() {
         ModelAndView mv = new ModelAndView();
         ModelAndViewObject mvo = new ModelAndViewObject("Trang chủ", "dashboard.css");
@@ -23,20 +38,21 @@ public class IndexController {
         return mv;
     }
 
-    @GetMapping("/home")
-    public ModelAndView home() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String role = authentication.getAuthorities().stream()
-                .map(GrantedAuthority::getAuthority)
-                .findFirst().get();
-        ModelAndView mv = new ModelAndView();
-        ModelAndViewObject mvo = new ModelAndViewObject("Shorten Link", "home.css");
-        // mvo.setJs("home.js");
-        mv.addObject(Utils.ModalAndViewObjectName, mvo);
-        mv.addObject("role", role);
-        mv.setViewName("home");
-        return mv;
-    }
+    // @GetMapping("/home")
+    // public ModelAndView home() {
+    // Authentication authentication =
+    // SecurityContextHolder.getContext().getAuthentication();
+    // String role = authentication.getAuthorities().stream()
+    // .map(GrantedAuthority::getAuthority)
+    // .findFirst().get();
+    // ModelAndView mv = new ModelAndView();
+    // ModelAndViewObject mvo = new ModelAndViewObject("Shorten Link", "home.css");
+    // // mvo.setJs("home.js");
+    // mv.addObject(Utils.ModalAndViewObjectName, mvo);
+    // mv.addObject("role", role);
+    // mv.setViewName("home");
+    // return mv;
+    // }
 
     @GetMapping("/my-urls")
     public ModelAndView myUrls() {

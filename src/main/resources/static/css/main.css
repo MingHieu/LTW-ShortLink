@@ -45,6 +45,10 @@ body {
   min-height: 100vh;
 }
 
+.other {
+  flex: 1;
+}
+
 .main-container {
   flex: 1;
   padding: 20px 50px;
