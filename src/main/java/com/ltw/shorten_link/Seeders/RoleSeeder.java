@@ -1,7 +1,6 @@
 package com.ltw.shorten_link.seeders;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,13 +14,9 @@ public class RoleSeeder {
     RoleRepository repository;
 
     public void seedData() {
-        if (repository.count() == 0) {
-            List<Role> roles = new ArrayList<>();
-            Role seeker = Role.builder().name("admin").build();
-            Role enterprise = Role.builder().name("user").build();
-            roles.add(seeker);
-            roles.add(enterprise);
-            repository.saveAll(roles);
-        }
+        Role admin = Role.builder().name("admin").id(1L).build();
+        Role enterprise = Role.builder().name("enterprise").id(2L).build();
+        Role user = Role.builder().name("user").id(3L).build();
+        repository.saveAll(Arrays.asList(new Role[] { admin, user, enterprise }));
     }
 }

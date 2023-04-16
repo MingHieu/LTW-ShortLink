@@ -55,7 +55,7 @@ public class SecurityConfiguration {
                 .formLogin(login -> login
                         .loginPage("/login").permitAll()
                         .loginProcessingUrl("/signup")
-                        .defaultSuccessUrl("/dashboard"));
+                        .defaultSuccessUrl("/role"));
         return http.build();
     }
 }
