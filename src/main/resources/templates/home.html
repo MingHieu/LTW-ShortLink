@@ -1,5 +1,16 @@
-<section>
-  <div class="content">
+<div class="home-page">
+  <header>
+    <div class="logo">
+      <a href="/home">Shorten Link</a>
+    </div>
+
+    <div class='btn-group'>
+      <button class='login-btn '><a href="/login">Login</a></button>
+      <button class='sign-in-btn '><a href="/signin">Get started</a></button>
+    </div>
+  </header>
+
+  <section class='form-link'>
     <form action="">
       <div class="form-group">
         <label class='form-label' for="destination">Destination</label>
@@ -16,23 +27,64 @@
         <button class='create-btn btn'>Create</button>
       </div>
     </form>
-  </div>
-</section>
+  </section>
 
-<section class='our-stats-container'>
-  <div class="our-stats">
-    <div class="our-stats_value">20m</div>
-    <div class="our-stats_caption">REDIRECTS PER DAY</div>
-  </div>
-  <div class="our-stats">
-    <img th:src="@{/images/circle-animtion.svg}" alt="">
-    <div class="our-stats_value">5300k</div>
-    <div class="our-stats_caption">customers</div>
-  </div>
-  <div class="our-stats">
-    <p class="our-stats_text">
-      <strong>We process 20,000,000 redirects per day for 200,000 happy customers. </strong>"It’s our goal to
-      provide reliable service allowing businesses to focus on their priorities."
+  <section class='our-stats-container'>
+    <div class="our-stats">
+      <div class="our-stats_value">20m</div>
+      <div class="our-stats_caption">REDIRECTS PER DAY</div>
+    </div>
+    <div class="our-stats">
+      <div class="our-stats_value">5300k</div>
+      <div class="our-stats_caption">customers</div>
+    </div>
+    <div class="our-stats">
+      <p class="our-stats_text">
+        <strong>We process 20,000,000 redirects per day for 200,000 happy customers. </strong>"It’s our goal to
+        provide reliable service allowing businesses to focus on their priorities."
+      </p>
+    </div>
+  </section>
+
+  <section class='brands'>
+    <h2>Trusted worldwide by</h2>
+    <ul>
+      <li><img th:src="@{/images/brands/facebook.png}" alt="">
+        <h3>Facebook</h3>
+      </li>
+      <li><img th:src="@{/images/brands/instagram.png}" alt="">
+        <h3>instagram</h3>
+      </li>
+      <li><img th:src="@{/images/brands/tiktok.png}" alt="">
+        <h3>tiktok</h3>
+      </li>
+      <li><img th:src="@{/images/brands/twitter.png}" alt="">
+        <h3>twitter</h3>
+      </li>
+      <li><img th:src="@{/images/brands/telegram.png}" alt="">
+        <h3>telegram</h3>
+      </li>
+    </ul>
+
+    <p class='brands-text'>Brands all over the world find Short.io essential for their work process.
+      <br>
+      Short.io helps businesses engage a new audience and increase brand recognition.
     </p>
-  </div>
-</section>
+  </section>
+
+  <section class='final'>
+    <h2 class='final-heading'>
+      It's easy to get started
+    </h2>
+    <div class="final-info">
+      <p class="final-text">And it's free — two things everyone loves.</p>
+      <a href=""><button>Get started</button></a>
+    </div>
+  </section>
+
+  <footer>
+    <span class="copyright">© Copyright 2023 Team 10 Class WEB. All Rights Reserved.</span>
+    <a href="" class="footer-link">Terms & Conditions</a>
+    <a href="" class="footer-link">Privacy Policy and GDPR</a>
+  </footer>
+</div>

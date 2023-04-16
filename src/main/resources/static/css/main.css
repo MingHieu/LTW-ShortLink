@@ -16,8 +16,8 @@
   --link-text: #006cff;
   --border: #ddd;
   --border-hover: #c3cbdc;
-  --border-active: #1cadff
-  --background: #f7f9fb;
+  --border-active: #1cadff;
+  --background: #f7f5f1;
   --background-hover: #ccc;
   --primary-background: #2a5bd7;
   --primary-background-hover: #0c3ebb;
@@ -38,11 +38,11 @@ body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,
     Noto Sans, sans-serif, BlinkMacSystemFont, Oxygen, Open Sans, Helvetica Neue;
   background: var(--background);
-}
-
-.body {
   display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
+  /* width: 100vw; */
 }
 
 .other {
@@ -51,21 +51,24 @@ body {
 
 .main-container {
   flex: 1;
-  padding: 20px 50px;
+  display: flex;
+  align-items: flex-start;
+  min-height: 100vh;
 }
 
-@media (max-width: 1200px) {
-  .main-container {
-    padding: 0;
-  }
+.nav-container {
+  width: 300px;
+  align-self: stretch;
+  position: sticky;
+  display: flex;
+  height: 100vh;
 }
 
-main {
-  max-width: 1200px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: var(--surface);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.view-page {
+  flex: 1;
+  padding: 5%;
+  min-height: 100%;
+  background-color: var(--background);
 }
 
 input:focus {
@@ -85,6 +88,7 @@ button {
   padding: 10px 20px;
   text-decoration: none;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .title-wrapper {
@@ -115,10 +119,12 @@ button {
   color: var(--primary-text);
 }
 
-.btn:hover {
+button:hover {
   background: var(--primary-background-hover);
+  color: var(--surface);
 }
 
-b, strong {
+b,
+strong {
   font-weight: bold;
 }

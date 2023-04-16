@@ -24,31 +24,31 @@
 <body>
     <th:block th:replace="fragments/header"></th:block>
 
-    <div class="body">
+    <div class='main-container'>
         <!-- Navbar -->
-        <th:block th:if="${role}">
-            <div th:text="${role}"></div>
-            <nav th:switch="${role}">
-                <div th:case="'admin'">
-                    <div th:replace="fragments/admin-navbar"></div>
-                </div>
-                <div th:case="'enterprise'">
-                    <div th:replace="fragments/enterprise-navbar"></div>
-                </div>
-                <div th:case="'user'">
-                    <div th:replace="fragments/user-navbar"></div>
-                </div>
-            </nav>
-        </th:block>
-        <th:block th:unless="${role}">
-            <div th:replace="fragments/user-navbar"></div>
-        </th:block>
+        <div class="nav-container">
+            <th:block th:if="${role}">
+                <div th:text="${role}"></div>
+                <nav th:switch="${role}">
+                    <div th:case="admin">
+                        <div th:replace="fragments/admin-navbar"></div>
+                    </div>
+                    <div th:case="enterprise">
+                        <div th:replace="fragments/enterprise-navbar"></div>
+                    </div>
+                    <div th:case="user">
+                        <div th:replace="fragments/user-navbar"></div>
+                    </div>
+                </nav>
+            </th:block>
+            <th:block th:unless="${role}">
+                <div th:replace="fragments/user-navbar"></div>
+            </th:block>
+        </div>
 
         <!-- Main -->
-        <div class="main-container">
-            <main>
-                <th:block th:replace="${data.view}"></th:block>
-            </main>
+        <div class="view-page">
+            <th:block th:replace="${data.view}"></th:block>
         </div>
     </div>
 

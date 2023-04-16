@@ -30,10 +30,18 @@ header {
 }
 
 .nav-container {
-  /* 200px width + 40px padding */
   width: 300px;
   align-self: stretch;
   position: sticky;
+  display: flex;
+  height: 100vh;
+}
+
+.nav-container li {
+  border: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .nav-item {
@@ -41,17 +49,15 @@ header {
 }
 
 .nav-active {
-  background-color: aqua;
+  background-color: var(--primary-background);
 }
 
 nav {
   position: fixed;
   height: 100%;
-  width: inherit;
+  width: 260px;
   padding: 20px;
   background-color: var(--surface);
-  overflow: overlay;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -85,7 +91,7 @@ nav a i {
 }
 
 nav a:not([href='/profile']):not([href='/signOut']):not([href='/']):hover {
-  background-color: #ddd;
+  background-color: var(--background-hover);
   border-radius: 10px;
 }
 
@@ -97,7 +103,7 @@ nav a:not([href='/profile']):not([href='/signOut']):not([href='/']):hover {
 }
 
 a[href='/signOut'] {
-  background-color: #ff0000e6;
+  background-color: var(--error-color);
   color: #fff;
 }
 

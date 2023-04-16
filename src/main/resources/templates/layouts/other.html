@@ -20,7 +20,9 @@
 </head>
 
 <body>
-    <th:block th:replace="${data.view}"></th:block>
+    <div class="main-container">
+        <th:block th:replace="${data.view}"></th:block>
+    </div>
 
     <th:block th:if="${data.jsLibrary}">
         <th:block th:each="js : ${data.jsLibrary}">

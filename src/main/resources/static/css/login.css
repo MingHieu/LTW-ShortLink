@@ -112,34 +112,34 @@
   margin-top: 20px;
 } */
 
-html {
-  color: #333;
-  font-size: 62.5%;
-  font-family: "Open Sans", sans-serif;
-}
-.main {
-  background: #f1f1f1;
-  min-height: 100vh;
+.login-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 100vh;
+  background-color: var(--background);
 }
+
 .form {
   width: 360px;
   min-height: 100px;
-  padding: 32px 24px;
+  padding: 2rem 1.5rem;
   text-align: center;
-  background: #fff;
-  border-radius: 2px;
-  margin: 24px;
+  background: var(--surface);
+  border-radius: 0.5rem;
+  margin: 1.5rem;
   align-self: center;
   box-shadow: 0 2px 5px 0 rgba(51, 62, 73, 0.1);
 }
+
 .form .heading {
   font-size: 2rem;
 }
+
 .form .desc {
   text-align: center;
-  color: #636d77;
+  color: var(--second-text);
   font-size: 1.6rem;
   font-weight: lighter;
   line-height: 2.4rem;
@@ -162,7 +162,7 @@ html {
   font-weight: 700;
   padding-bottom: 6px;
   line-height: 1.8rem;
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 
 .form-control {
@@ -171,7 +171,7 @@ html {
   border: 1px solid #b3b3b3;
   border-radius: 3px;
   outline: none;
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 
 .form-control:hover {
@@ -183,22 +183,22 @@ html {
 }
 
 .form-group.invalid .form-message {
-  color: #f33a58;
+  color: var(--error-color);
 }
 
 .form-message {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   line-height: 1.6rem;
   padding: 4px 0 0;
 }
 
 .form-submit {
   outline: none;
-  background-color: #1dbfaf;
+  background-color: var(--button-background);
   margin-top: 12px;
   padding: 12px 16px;
   font-weight: 600;
-  color: #fff;
+  color: var(--surface);
   border: none;
   width: 100%;
   font-size: 14px;
@@ -207,9 +207,18 @@ html {
 }
 
 .form-submit:hover {
-  background-color: #1ac7b6;
+  background-color: var(--button-background-hover);
 }
 
 .spacer {
   margin-top: 36px;
+}
+
+p {
+  margin-top: 2rem;
+}
+
+p a {
+  color: var(--link-text);
+  text-decoration: underline;
 }

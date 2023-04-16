@@ -1,5 +1,5 @@
-.body {
-  flex-direction: column;
+.home-page {
+  background-color: var(--background) !important;
 }
 
 header {
@@ -7,26 +7,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.home-page {
-  background-color: #f7f5f1;
-}
-
-.btn-group button a {
-  font-size: 1.2rem;
-}
-
-.login-btn {
-  border: none;
-  box-shadow: rgba(65, 184, 192, 0.2) 0px 2px 8px 4px;
-  margin-right: 1rem;
-  background-color: transparent;
-}
-
-.sign-in-btn {
-  border-color: orange;
-  text-transform: uppercase;
+  background-color: var(--background) !important;
 }
 
 .logo {
@@ -40,9 +21,37 @@ header {
   font-size: 2rem;
 }
 
+.btn-group button a {
+  font-size: 1.2rem;
+}
+
+.login-btn {
+  border: none;
+  box-shadow: rgba(65, 184, 192, 0.2) 0px 2px 8px 4px;
+  margin-right: 1rem;
+  transition: background-color 0.5s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+}
+
+.login-btn:hover a {
+  color: var(--surface);
+}
+
+.sign-in-btn {
+  /* border-color: var(--border); */
+  text-transform: uppercase;
+  background-color: var(--button-background);
+}
+.sign-in-btn:hover {
+  background-color: var(--button-background-hover);
+  transition: background-color 0.5s ease;
+}
+
+.sign-in-btn a {
+  color: var(--surface);
+}
+
 section {
   padding: 40px 10%;
-  background-color: #f7f5f1;
   display: flex;
   flex-wrap: wrap;
 }
@@ -52,7 +61,7 @@ section {
   min-height: 100px;
   padding: 32px 24px;
   text-align: center;
-  background: #fff;
+  /* background: #fff; */
   border-radius: 2px;
   margin: 24px;
   align-self: center;
@@ -94,19 +103,19 @@ section {
 }
 
 .cancel-btn {
-  background-color: white;
-  border: 1px solid black;
+  background-color: var(--surface);
+  border: 1px solid var(--background);
 }
 
 .create-btn {
-  color: white;
+  color: var(--surface);
 }
 
 .form-link {
   display: block;
-  background-color: white;
   padding-left: 20%;
   padding-right: 20%;
+  background-color: var(--surface);
 }
 
 .our-stats-container {
@@ -114,6 +123,7 @@ section {
   padding-right: 15%;
   justify-content: center;
   align-items: center;
+  background-color: var(--background) !important;
 }
 
 .our-stats {
@@ -175,7 +185,6 @@ li {
 img {
   height: 100%;
   width: 100%;
-  /* width: ; */
 }
 
 .brands-text {
@@ -188,6 +197,7 @@ img {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: var(--background) !important;
 }
 
 .final-heading {
@@ -207,10 +217,14 @@ img {
 .final-info button {
   border: none;
   border-radius: 0;
-  background-color: black;
-  color: white;
+  background-color: var(--button-background);
+  color: var(--surface);
   text-transform: uppercase;
   font-size: 2rem;
+}
+
+.final-info button:hover {
+  background-color: var(--button-background-hover);
 }
 
 .final-text {

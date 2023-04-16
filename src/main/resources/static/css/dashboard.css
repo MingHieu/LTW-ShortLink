@@ -1,16 +1,17 @@
-/* .create-new {
-  padding: 2.4rem 2.8rem;
-  width: 100%;
-  align-self: center;
-} */
-
-.create-new h1 {
-  font-size: 2.4rem;
+h1 {
+  font-size: 2rem;
   line-height: 3rem;
 }
 
 .title-wrapper {
   margin-bottom: 2.4rem;
+}
+
+.create-new-link-container {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
 }
 
 .destination-url-container {
@@ -57,18 +58,22 @@
 .button-group {
   display: flex;
   justify-content: flex-end;
+  align-self: flex-end;
 }
 
-.primary-btn {
-  color: #fff !important;
+.btn-create {
+  background-color: var(--primary-background);
+  margin-left: 1.5rem;
+  border: none;
+  color: var(--surface);
 }
 
 .btn-cancel {
-  background: 0 !important;
+  border: 1px solid var(--border);
 }
 
 .btn-cancel:hover {
-  background: var(--background-hover) !important;
+  background: var(--background-hover);
 }
 
 .create-new .orb-button {
@@ -89,16 +94,17 @@
   background: var(--primary-background-hover);
 }
 
-.content {
+.sub-content {
   margin-top: 4rem;
   padding: 0rem 4rem;
+  /* background-color: var(--surface); */
 }
 
-.content a {
+.sub-content a {
   color: var(--link-text);
 }
 
-.content p {
+.sub-content p {
   margin: 0.5rem 0.2rem;
 }
 
@@ -123,14 +129,11 @@
 
 .item i {
   font-size: 3rem;
-  /* color: ; */
-
 }
 
 .item p {
   text-align: center;
 }
-
 
 .item h3 {
   color: #123;
