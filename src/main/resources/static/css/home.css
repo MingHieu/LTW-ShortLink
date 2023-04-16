@@ -44,6 +44,7 @@ section {
   padding: 40px 10%;
   background-color: #f7f5f1;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .form {
@@ -109,9 +110,10 @@ section {
 }
 
 .our-stats-container {
-  
   padding-left: 15%;
   padding-right: 15%;
+  justify-content: center;
+  align-items: center;
 }
 
 .our-stats {
@@ -119,8 +121,7 @@ section {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-
-  
+  margin-bottom: 1rem;
 }
 
 .our-stats_value {
@@ -225,8 +226,8 @@ footer {
   font-size: 0.8rem;
 }
 
-.copyright{
- flex: 1;
+.copyright {
+  flex: 1;
 }
 
 .footer-link {
