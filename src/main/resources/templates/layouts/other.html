@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
     <meta charset="UTF-8">
@@ -10,7 +8,7 @@
     <title th:text="${data.title}"></title>
     <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css" rel="stylesheet"
         type="text/css" />
-    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
     <th:block th:if="${data.cssLibrary}">
         <th:block th:each="css : ${data.cssLibrary}">
             <link rel="stylesheet" th:href="${css}" />
@@ -22,11 +20,7 @@
 </head>
 
 <body>
-    <div class="body">
-        <div th:fragment="main-container" class='other'>
-            <div th:replace="::content"></div>
-        </div>
-    </div>
+    <th:block th:replace="${data.view}"></th:block>
 
     <th:block th:if="${data.jsLibrary}">
         <th:block th:each="js : ${data.jsLibrary}">
@@ -34,7 +28,6 @@
         </th:block>
     </th:block>
     <script src="/js/main.js"></script>
-
     <th:block th:if="${data.js}">
         <script th:src="@{/js/} + ${data.js}"></script>
     </th:block>

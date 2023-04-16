@@ -1,27 +1,7 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/main.html">
-
-
-<head th:replace="layouts/main :: head"></head>
-
-<body th:replace="layouts/main :: body">
-    <div th:replace="~{layouts/main :: main(~{::content})}">
-
-        <div class="main" th:fragment="content">
-
-            <div class="container chart-container">
-                <div class="title-wrapper">
-                    <h1>Statistics of clicks by month</h1>
-                </div>
-
-                <canvas id="lineChart"></canvas>
-
-            </div>
-        </div>
+<div class="container chart-container">
+    <div class="title-wrapper">
+        <h1>Statistics of clicks by month</h1>
     </div>
 
-</body>
-
-</html>
+    <canvas id="lineChart"></canvas>
+</div>

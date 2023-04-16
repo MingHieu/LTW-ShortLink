@@ -1,4 +1,4 @@
-package com.ltw.shorten_link.model;
+package com.ltw.shorten_link.interfaces;
 
 import java.util.List;
 

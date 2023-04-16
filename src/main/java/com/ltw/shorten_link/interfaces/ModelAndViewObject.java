@@ -1,4 +1,4 @@
-package com.ltw.shorten_link.model;
+package com.ltw.shorten_link.interfaces;
 
 import io.micrometer.common.lang.Nullable;
 import lombok.Data;
@@ -6,6 +6,9 @@ import lombok.NonNull;
 
 @Data
 public class ModelAndViewObject {
+    @NonNull
+    public String view;
+
     @NonNull
     public String title;
 

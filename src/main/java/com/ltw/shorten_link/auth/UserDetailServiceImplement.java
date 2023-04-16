@@ -1,4 +1,4 @@
-package com.ltw.shorten_link.Configuration.Services;
+package com.ltw.shorten_link.auth;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
