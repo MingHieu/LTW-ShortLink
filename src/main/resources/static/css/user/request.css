@@ -1,0 +1,59 @@
+.withdraw-money {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.withdraw-money h1 {
+  text-align: center;
+}
+
+.withdraw-money form {
+  background-color: var(--surface);
+  border-radius: 4px;
+  padding: 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1em;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.form-group input[type='text'] {
+  width: 100%;
+  padding: 0.5em;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.currency {
+  display: inline-block;
+  padding: 0.5em;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+}
+
+.input-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.amount-group {
+  justify-content: flex-start;
+}
+
+.input-group input[type='text'] {
+  width: 50%;
+}
+
+.withdraw-money-submit {
+  color: var(--surface);
+}

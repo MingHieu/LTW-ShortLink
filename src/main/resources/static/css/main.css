@@ -66,7 +66,7 @@ body {
 
 .view-page {
   flex: 1;
-  padding: 5%;
+  padding: 2% 5%;
   min-height: 100%;
   background-color: var(--background);
 }
@@ -79,16 +79,6 @@ input:focus {
 a {
   text-decoration: none;
   color: var(--primary-text);
-}
-
-button {
-  font-size: 16px;
-  display: inline-block;
-  border-radius: 10px;
-  padding: 10px 20px;
-  text-decoration: none;
-  font-weight: 600;
-  cursor: pointer;
 }
 
 .title-wrapper {
@@ -105,23 +95,33 @@ button {
   flex: 1;
 }
 
-.btn {
+button {
+  min-width: 100px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 0.8rem;
-  margin-right: 0.6rem;
+  padding: 0.75rem 1.25rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
   cursor: pointer;
   background: var(--primary-background);
   font-size: 1rem;
   color: var(--primary-text);
+  font-weight: 600;
 }
 
 button:hover {
   background: var(--primary-background-hover);
   color: var(--surface);
+}
+
+input:hover {
+  border-color: var(--border-hover);
+}
+
+:active {
+  border-color: var(--border-active);
 }
 
 b,

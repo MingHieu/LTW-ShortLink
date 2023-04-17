@@ -29,7 +29,8 @@ header {
   border: none;
   box-shadow: rgba(65, 184, 192, 0.2) 0px 2px 8px 4px;
   margin-right: 1rem;
-  transition: background-color 0.5s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  transition: all 0.5s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  background-color: var(--surface);
 }
 
 .login-btn:hover a {
@@ -37,7 +38,6 @@ header {
 }
 
 .sign-in-btn {
-  /* border-color: var(--border); */
   text-transform: uppercase;
   background-color: var(--button-background);
 }
@@ -95,13 +95,6 @@ section {
   justify-content: flex-end;
 }
 
-.btn {
-  width: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .cancel-btn {
   background-color: var(--surface);
   border: 1px solid var(--background);
@@ -109,6 +102,7 @@ section {
 
 .create-btn {
   color: var(--surface);
+  margin-left: 0.5rem;
 }
 
 .form-link {

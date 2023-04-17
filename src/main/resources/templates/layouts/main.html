@@ -28,8 +28,7 @@
         <!-- Navbar -->
         <div class="nav-container">
             <th:block th:if="${role}">
-                <div th:text="${role}"></div>
-                <nav th:switch="${role}">
+                <div th:switch="${role}">
                     <div th:case="admin">
                         <div th:replace="fragments/admin-navbar"></div>
                     </div>
@@ -39,7 +38,7 @@
                     <div th:case="user">
                         <div th:replace="fragments/user-navbar"></div>
                     </div>
-                </nav>
+                </div>
             </th:block>
             <th:block th:unless="${role}">
                 <div th:replace="fragments/user-navbar"></div>

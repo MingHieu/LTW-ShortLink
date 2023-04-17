@@ -28,6 +28,6 @@ public class AuthController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String role = authentication.getAuthorities().toArray()[0].toString();
         System.out.println(role);
-        return role.equals("admin") ? "redirect:/admin" : role.equals("enterprise") ? "redirect:/enterprise" : "redirect:/dashboard";
+        return role.equals("admin") ? "redirect:/admin/users" : role.equals("enterprise") ? "redirect:/enterprise/payment" : "redirect:/dashboard";
     }
 }

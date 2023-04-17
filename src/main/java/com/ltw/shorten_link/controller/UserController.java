@@ -23,7 +23,7 @@ public class UserController {
     @GetMapping("/dashboard")
     public ModelAndView dashboard() {
         ModelAndView mv = new ModelAndView("layouts/main");
-        ModelAndViewObject mvo = new ModelAndViewObject("user/dashboard", "Shorten Link", "dashboard.css");
+        ModelAndViewObject mvo = new ModelAndViewObject("user/dashboard", "Shorten Link", "user/dashboard.css");
         mv.addObject(Utils.ModalAndViewObjectName, mvo);
         return mv;
     }
@@ -31,7 +31,7 @@ public class UserController {
     @GetMapping("/my-urls")
     public ModelAndView myUrls() {
         ModelAndView mv = new ModelAndView("layouts/main");
-        ModelAndViewObject mvo = new ModelAndViewObject("user/my-urls", "My Urls", "my-urls.css");
+        ModelAndViewObject mvo = new ModelAndViewObject("user/my-urls", "My Urls", "user/my-urls.css");
         mv.addObject(Utils.ModalAndViewObjectName, mvo);
         ;
         return mv;
@@ -40,7 +40,7 @@ public class UserController {
     @GetMapping("/statistics")
     public ModelAndView Statistics() {
         ModelAndView mv = new ModelAndView("layouts/main");
-        ModelAndViewObject mvo = new ModelAndViewObject("user/statistics", "Statistics", "statistics.css");
+        ModelAndViewObject mvo = new ModelAndViewObject("user/statistics", "Statistics", "user/statistics.css");
         mvo.setJsLibrary(new String[] { "https://cdn.jsdelivr.net/npm/chart.js" });
         mv.addObject(Utils.ModalAndViewObjectName, mvo);
         return mv;
@@ -50,7 +50,7 @@ public class UserController {
     @GetMapping("/affiliate")
     public ModelAndView linkAffiliate() {
         ModelAndView mv = new ModelAndView("layouts/main");
-        ModelAndViewObject mvo = new ModelAndViewObject("user/link-affiliate", "Link Affiliate", "link-affiliate.css");
+        ModelAndViewObject mvo = new ModelAndViewObject("user/link-affiliate", "Link Affiliate", "user/link-affiliate.css");
         mv.addObject(Utils.ModalAndViewObjectName, mvo);
         return mv;
     }
@@ -58,7 +58,7 @@ public class UserController {
     @GetMapping("/amount")
     public ModelAndView amount() {
         ModelAndView mv = new ModelAndView("layouts/main");
-        ModelAndViewObject mvo = new ModelAndViewObject("user/amount", "Amount", "amount.css");
+        ModelAndViewObject mvo = new ModelAndViewObject("user/amount", "Amount", "user/amount.css");
         mv.addObject(Utils.ModalAndViewObjectName, mvo);
         return mv;
     }
@@ -66,7 +66,7 @@ public class UserController {
     @GetMapping("/request")
     public ModelAndView request() {
         ModelAndView mv = new ModelAndView("layouts/main");
-        ModelAndViewObject mvo = new ModelAndViewObject("user/request", "Request", "request.css");
+        ModelAndViewObject mvo = new ModelAndViewObject("user/request", "Request", "user/request.css");
         mv.addObject(Utils.ModalAndViewObjectName, mvo);
         return mv;
     }

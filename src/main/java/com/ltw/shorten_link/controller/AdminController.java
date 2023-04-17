@@ -16,9 +16,45 @@ import lombok.RequiredArgsConstructor;
 public class AdminController {
 
   @GetMapping("/users")
-  public ModelAndView Statistics() {
+  public ModelAndView Users() {
     ModelAndView mv = new ModelAndView("layouts/main");
-    ModelAndViewObject mvo = new ModelAndViewObject("admin/users", "Users", "users.css");
+    ModelAndViewObject mvo = new ModelAndViewObject("admin/users", "Users", "admin/users.css");
+    mv.addObject("role", "admin");
+    mv.addObject(Utils.ModalAndViewObjectName, mvo);
+    return mv;
+  }
+
+  @GetMapping("/enterprise")
+  public ModelAndView Enterprise() {
+    ModelAndView mv = new ModelAndView("layouts/main");
+    ModelAndViewObject mvo = new ModelAndViewObject("admin/enterprise", "Enterprise", "admin/enterprise.css");
+    mv.addObject("role", "admin");
+    mv.addObject(Utils.ModalAndViewObjectName, mvo);
+    return mv;
+  }
+
+  @GetMapping("/withdraw-money")
+  public ModelAndView WithdrawMoney() {
+    ModelAndView mv = new ModelAndView("layouts/main");
+    ModelAndViewObject mvo = new ModelAndViewObject("admin/withdraw-money", "Withdraw-money", "admin/withdraw-money.css");
+    mv.addObject("role", "admin");
+    mv.addObject(Utils.ModalAndViewObjectName, mvo);
+    return mv;
+  }
+
+  @GetMapping("/payment")
+  public ModelAndView Payment() {
+    ModelAndView mv = new ModelAndView("layouts/main");
+    ModelAndViewObject mvo = new ModelAndViewObject("admin/payment", "Payment", "admin/payment.css");
+    mv.addObject("role", "admin");
+    mv.addObject(Utils.ModalAndViewObjectName, mvo);
+    return mv;
+  }
+
+  @GetMapping("/urls")
+  public ModelAndView Urls() {
+    ModelAndView mv = new ModelAndView("layouts/main");
+    ModelAndViewObject mvo = new ModelAndViewObject("admin/urls", "Urls", "admin/urls.css");
     mv.addObject("role", "admin");
     mv.addObject(Utils.ModalAndViewObjectName, mvo);
     return mv;

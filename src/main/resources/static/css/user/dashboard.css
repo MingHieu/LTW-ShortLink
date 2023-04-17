@@ -70,10 +70,13 @@ h1 {
 
 .btn-cancel {
   border: 1px solid var(--border);
+  background-color: var(--button-background);
+  color: var(--surface);
 }
 
 .btn-cancel:hover {
   background: var(--background-hover);
+  color: var(--primary-text);
 }
 
 .create-new .orb-button {
