@@ -1,12 +1,12 @@
-.home-page {
-  background-color: var(--background) !important;
-}
-
 header {
   padding: 30px 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: var(--background) !important;
+}
+
+.home-page {
   background-color: var(--background) !important;
 }
 
@@ -21,33 +21,16 @@ header {
   font-size: 2rem;
 }
 
-.btn-group button a {
-  font-size: 1.2rem;
-}
-
 .login-btn {
-  border: none;
-  box-shadow: rgba(65, 184, 192, 0.2) 0px 2px 8px 4px;
-  margin-right: 1rem;
-  transition: all 0.5s cubic-bezier(0.95, 0.05, 0.795, 0.035);
-  background-color: var(--surface);
-}
-
-.login-btn:hover a {
-  color: var(--surface);
-}
-
-.sign-in-btn {
   text-transform: uppercase;
   background-color: var(--button-background);
-}
-.sign-in-btn:hover {
-  background-color: var(--button-background-hover);
-  transition: background-color 0.5s ease;
+  color: var(--surface);
+  padding: 10px;
 }
 
-.sign-in-btn a {
-  color: var(--surface);
+.login-btn:hover {
+  background-color: var(--button-background-hover);
+  
 }
 
 section {
@@ -66,20 +49,6 @@ section {
   margin: 24px;
   align-self: center;
   box-shadow: 0 2px 5px 0 rgba(51, 62, 73, 0.1);
-}
-
-.form-group {
-  display: flex;
-  margin-bottom: 16px;
-  flex-direction: column;
-}
-
-.form-group input {
-  border-radius: 4px;
-  padding: 10px;
-  outline: none;
-  border: 1px solid;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .form-label,
@@ -110,6 +79,19 @@ section {
   padding-left: 20%;
   padding-right: 20%;
   background-color: var(--surface);
+}
+
+.form-link form {
+  display: flex;
+}
+
+.form-link form input {
+  flex: 1;
+  border-radius: 4px;
+  padding: 10px;
+  outline: none;
+  border: 1px solid;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .our-stats-container {
@@ -236,9 +218,4 @@ footer {
 
 .copyright {
   flex: 1;
-}
-
-.footer-link {
-  margin-left: 0.75rem;
-  color: inherit;
 }

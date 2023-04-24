@@ -1,25 +1,26 @@
 package com.ltw.shorten_link.entities;
 
+import java.util.Date;
+
+import org.springframework.data.annotation.CreatedDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import jakarta.persistence.Table;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@Entity(name = "roles")
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public class Role {
+@Entity
+@Table(name = "clicks")
+public class Click {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "name")
-    private String name;
+    @CreatedDate
+    @Column(name = "create_at", nullable = false)
+    private Date createAt;
 }

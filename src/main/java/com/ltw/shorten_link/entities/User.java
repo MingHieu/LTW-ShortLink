@@ -1,11 +1,14 @@
 package com.ltw.shorten_link.entities;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -39,4 +42,10 @@ public class User {
     @OneToOne
     @JoinColumn(name = "role_id", referencedColumnName = "id")
     private Role role;
+
+    @OneToMany(targetEntity = Link.class)
+    private List<Link> links;
+
+    @OneToMany(targetEntity = Request.class)
+    private List<Request> requests;
 }

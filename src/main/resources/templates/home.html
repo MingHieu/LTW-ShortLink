@@ -5,27 +5,14 @@
     </div>
 
     <div class='btn-group'>
-      <a href="/login"><button class='login-btn '>Login</button></a>
-      <button class='sign-in-btn '><a href="/signin">Get started</a></button>
+      <a class="login-btn" href="/login">Get started</a>
     </div>
   </header>
 
   <section class='form-link'>
-    <form action="">
-      <div class="form-group">
-        <label class='form-label' for="destination">Destination</label>
-        <input id='destination' type="text" name='destination' placeholder='https://www.my_urls.com'>
-      </div>
-
-      <div class="form-group">
-        <label class='form-label' for="title">Title</label>
-        <input id='title' type="text" name='title'>
-      </div>
-
-      <div class="form-group-btn form-group">
-        <button class="cancel-btn">Cancel</button>
-        <button class='create-btn'>Create</button>
-      </div>
+    <form action="/" method="post">
+      <input id='destination' type="text" name='destination' placeholder='https://www.my_urls.com'>
+      <button class='create-btn'>Create</button>
     </form>
   </section>
 
@@ -78,7 +65,7 @@
     </h2>
     <div class="final-info">
       <p class="final-text">And it's free — two things everyone loves.</p>
-      <a href=""><button class='final-btn'>Get started</button></a>
+      <a href="/login"><button class='final-btn'>Get started</button></a>
     </div>
   </section>
 

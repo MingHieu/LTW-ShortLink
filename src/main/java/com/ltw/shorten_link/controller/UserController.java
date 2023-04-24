@@ -2,22 +2,38 @@ package com.ltw.shorten_link.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ltw.shorten_link.Utils;
+import com.ltw.shorten_link.entities.Link;
 import com.ltw.shorten_link.interfaces.ModelAndViewObject;
+import com.ltw.shorten_link.services.LinkService;
 
 import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
 public class UserController {
+
+    private final LinkService linkService;
+
     @GetMapping("/")
     public ModelAndView home() {
         ModelAndView mv = new ModelAndView("layouts/other");
         ModelAndViewObject mvo = new ModelAndViewObject("home", "Shorten Link", "home.css");
         mv.addObject(Utils.ModalAndViewObjectName, mvo);
         return mv;
+    }
+
+    @PostMapping("/")
+    public void homePost(Link link) {
+        System.out.println(link);
+        // shortLink(null);
+    }
+
+    public void shortLink(String url) {
+        linkService.create(url);
     }
 
     @GetMapping("/dashboard")
@@ -50,7 +66,8 @@ public class UserController {
     @GetMapping("/affiliate")
     public ModelAndView linkAffiliate() {
         ModelAndView mv = new ModelAndView("layouts/main");
-        ModelAndViewObject mvo = new ModelAndViewObject("user/link-affiliate", "Link Affiliate", "user/link-affiliate.css");
+        ModelAndViewObject mvo = new ModelAndViewObject("user/link-affiliate", "Link Affiliate",
+                "user/link-affiliate.css");
         mv.addObject(Utils.ModalAndViewObjectName, mvo);
         return mv;
     }

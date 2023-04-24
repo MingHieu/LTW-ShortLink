@@ -6,23 +6,23 @@
       </a>
 
       <ul>
-        <li><a class="nav-item" th:href='@{/users}'>
+        <li><a class="nav-item" th:href='@{users}'>
             <i class="fa-solid fa-users"></i>
             User
           </a></li>
-        <li><a class="nav-item" th:href='@{/enterprise}'>
+        <li><a class="nav-item" th:href='@{enterprise}'>
             <i class="fa-solid fa-building"></i>
             Enterprise
           </a></li>
-        <li><a class="nav-item" th:href='@{/withdraw-money}'>
+        <li><a class="nav-item" th:href='@{withdraw-money}'>
             <i class="fa-solid fa-money-from-bracket"></i>
             Withdraw Money
           </a></li>
-        <li><a class="nav-item" th:href='@{/payment}'>
+        <li><a class="nav-item" th:href='@{payment}'>
             <i class="fa-solid fa-credit-card"></i>
             Payment
           </a></li>
-        <li><a class="nav-item" th:href='@{/urls}'>
+        <li><a class="nav-item" th:href='@{urls}'>
             <i class="fa-sharp fa-solid fa-link-simple"></i>
             Urls
           </a></li>
@@ -34,10 +34,6 @@
         <img class="user-avatar-header" th:src="@{/images/default-user.jpeg}" alt="User Avatar" />
         <span class="username-header"></span>
       </a>
-      <div style="display: flex; justify-content: space-between">
-        <a style="flex: 1; width: auto" th:href="@{/signup}">Đăng ký</a>
-        <a style="flex: 1; width: auto" th:href="@{/login}">Đăng nhập</a>
-      </div>
 
       <a th:href="@{/signOut}"><i class="fa-solid fa-right-from-bracket"></i>Đăng xuất</a>
     </div>
