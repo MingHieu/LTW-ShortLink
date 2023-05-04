@@ -4,6 +4,7 @@
 
 #lineChart {
   margin-top: 4rem;
+  background: var(--surface);
 }
 
 canvas {

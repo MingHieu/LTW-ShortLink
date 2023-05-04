@@ -13,13 +13,13 @@ ul {
   padding: 0;
 }
 
-li {
+.my-urls li {
   border: 1px solid #ddd;
   border-radius: 5px;
   display: flex;
   margin-bottom: 10px;
   padding: 10px;
-
+  background: var(--surface);
   justify-content: space-between;
 }
 

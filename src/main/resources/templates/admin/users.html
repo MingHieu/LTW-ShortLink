@@ -1,125 +1,79 @@
 <div class="users-container">
   <h1>User Management</h1>
-  <div class="users">
-    <div class="user">
-      <img th:src="@{../../static/images/default-user.jpeg}" alt="User Avatar">
-      <a href="@{/profile}">
-        <h2 class='username'>Jane Doe</h2>
-      </a>
-      <p class='email'>Email: jane.doe@example.com</p>
-      <p class='role'>Role: Administrator</p>
-      <button class='btn-edit'>Edit</button>
-      <button class='btn-delete'>Delete</button>
-    </div>
-    <div class="user">
-      <img th:src="@{../../static/images/default-user.jpeg}" alt="User Avatar">
-      <a href="@{/profile}">
-        <h2 class='username'>John Smith</h2>
-      </a>
-      <p class='email'>Email: john.smith@example.com</p>
-      <p class='role'>Role: User</p>
-      <button class='btn btn-edit'>Edit</button>
-      <button class='btn btn-delete'>Delete</button>
-    </div>
-    <div class="user">
-      <img th:src="@{../../static/images/default-user.jpeg}" alt="User Avatar">
-      <a href="@{/profile}">
-        <h2 class='username'>Sarah Johnson</h2>
-      </a>
-      <p class='email'>Email: sarah.johnson@example.com</p>
-      <p class='role'>Role: User</p>
-      <button class='btn btn-edit'>Edit</button>
-      <button class='btn btn-delete'>Delete</button>
-    </div>
-    <div class="user">
-      <img th:src="@{../../static/images/default-user.jpeg}" alt="User Avatar">
-      <a href="@{/profile}">
-        <h2 class='username'>Sarah Johnson</h2>
-      </a>
-      <p class='email'>Email: sarah.johnson@example.com</p>
-      <p class='role'>Role: User</p>
-      <button class='btn btn-edit'>Edit</button>
-      <button class='btn btn-delete'>Delete</button>
-    </div>
-    <div class="user">
-      <img th:src="@{../../static/images/default-user.jpeg}" alt="User Avatar">
-      <a href="@{/profile}">
-        <h2 class='username'>Sarah Johnson</h2>
-      </a>
-      <p class='email'>Email: sarah.johnson@example.com</p>
-      <p class='role'>Role: User</p>
-      <button class='btn btn-edit'>Edit</button>
-      <button class='btn btn-delete'>Delete</button>
-    </div>
-    <div class="user">
-      <img th:src="@{../../static/images/default-user.jpeg}" alt="User Avatar">
-      <a href="@{/profile}">
-        <h2 class='username'>Sarah Johnson</h2>
-      </a>
-      <p class='email'>Email: sarah.johnson@example.com</p>
-      <p class='role'>Role: User</p>
-      <button class='btn btn-edit'>Edit</button>
-      <button class='btn btn-delete'>Delete</button>
-    </div>
-    <div class="user">
-      <img th:src="@{../../static/images/default-user.jpeg}" alt="User Avatar">
-      <a href="@{/profile}">
-        <h2 class='username'>Sarah Johnson</h2>
-      </a>
-      <p class='email'>Email: sarah.johnson@example.com</p>
-      <p class='role'>Role: User</p>
-      <button class='btn btn-edit'>Edit</button>
-      <button class='btn btn-delete'>Delete</button>
-    </div>
-    <div class="user">
-      <img th:src="@{../../static/images/default-user.jpeg}" alt="User Avatar">
-      <a href="@{/profile}">
-        <h2 class='username'>Sarah Johnson</h2>
-      </a>
-      <p class='email'>Email: sarah.johnson@example.com</p>
-      <p class='role'>Role: User</p>
-      <button class='btn btn-edit'>Edit</button>
-      <button class='btn btn-delete'>Delete</button>
-    </div>
-    <div class="user">
-      <img th:src="@{../../static/images/default-user.jpeg}" alt="User Avatar">
-      <a href="@{/profile}">
-        <h2 class='username'>Sarah Johnson</h2>
-      </a>
-      <p class='email'>Email: sarah.johnson@example.com</p>
-      <p class='role'>Role: User</p>
-      <button class='btn btn-edit'>Edit</button>
-      <button class='btn btn-delete'>Delete</button>
-    </div>
-    <div class="user">
-      <img th:src="@{../../static/images/default-user.jpeg}" alt="User Avatar">
-      <a href="@{/profile}">
-        <h2 class='username'>Sarah Johnson</h2>
-      </a>
-      <p class='email'>Email: sarah.johnson@example.com</p>
-      <p class='role'>Role: User</p>
-      <button class='btn btn-edit'>Edit</button>
-      <button class='btn btn-delete'>Delete</button>
-    </div>
-    <div class="user">
-      <img th:src="@{../../static/images/default-user.jpeg}" alt="User Avatar">
-      <a href="@{/profile}">
-        <h2 class='username'>Sarah Johnson</h2>
-      </a>
-      <p class='email'>Email: sarah.johnson@example.com</p>
-      <p class='role'>Role: User</p>
-      <button class='btn btn-edit'>Edit</button>
-      <button class='btn btn-delete'>Delete</button>
-    </div>
-    <div class="user">
-      <img th:src="@{../../static/images/default-user.jpeg}" alt="User Avatar">
-      <a href="@{/profile}">
-        <h2 class='username'>Sarah Johnson</h2>
-      </a>
-      <p class='email'>Email: sarah.johnson@example.com</p>
-      <p class='role'>Role: User</p>
-      <button class='btn btn-edit'>Edit</button>
-      <button class='btn btn-delete'>Delete</button>
-    </div>
+  <div class="user-table">
+    <table>
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>John Smith</td>
+          <td>john@example.com</td>
+          <td>Admin</td>
+          <td>
+            <button>Edit</button>
+            <button class='btn-delete'>Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Jane Doe</td>
+          <td>jane@example.com</td>
+          <td>Enterprise</td>
+          <td>
+            <button>Edit</button>
+            <button class='btn-delete'>Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Bob Johnson</td>
+          <td>bob@example.com</td>
+          <td>User</td>
+          <td>
+            <button>Edit</button>
+            <button class='btn-delete'>Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Lisa Brown</td>
+          <td>lisa@example.com</td>
+          <td>User</td>
+          <td>
+            <button>Edit</button>
+            <button class='btn-delete'>Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Tom Lee</td>
+          <td>tom@example.com</td>
+          <td>User</td>
+          <td>
+            <button>Edit</button>
+            <button class='btn-delete'>Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Sarah Lee</td>
+          <td>sarah@example.com</td>
+          <td>User</td>
+          <td>
+            <button>Edit</button>
+            <button class='btn-delete'>Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="add-user-btn">Add New User</button>
   </div>
 </div>

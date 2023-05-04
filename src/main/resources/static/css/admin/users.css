@@ -3,7 +3,47 @@
   margin-top: 50px;
 }
 
-.users {
+.user-table {
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #ddd;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.add-user-btn {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-user-btn:hover {
+  background-color: #3e8e41;
+}
+
+
+/* .users {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -50,4 +90,4 @@
 
 .btn-edit:hover {
   background-color: var(--warning-color)
-}
+} */

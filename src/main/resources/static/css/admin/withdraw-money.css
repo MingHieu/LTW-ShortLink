@@ -1,59 +1,33 @@
-.withdraw-money {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 1em;
-}
-
 .withdraw-money h1 {
   text-align: center;
+  margin-top: 50px;
 }
 
-.withdraw-money form {
-  background-color: var(--surface);
-  border-radius: 4px;
-  padding: 1em;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.request-money-table {
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-family: Arial, sans-serif;
 }
 
-.form-group {
-  margin-bottom: 1em;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5em;
-}
-
-.form-group input[type='text'] {
+table {
+  border-collapse: collapse;
   width: 100%;
-  padding: 0.5em;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  box-sizing: border-box;
 }
 
-.currency {
-  display: inline-block;
-  padding: 0.5em;
-  background-color: var(--background);
-  border: 1px solid var(--border);
-  border-left: none;
-  border-radius: 0 4px 4px 0;
+th,
+td {
+  text-align: left;
+  padding: 8px;
 }
 
-.input-group {
-  display: flex;
-  justify-content: space-between;
+th {
+  background-color: #ddd;
 }
 
-.amount-group {
-  justify-content: flex-start;
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
-.input-group input[type='text'] {
-  width: 50%;
-}
-
-.withdraw-money-submit {
-  color: var(--surface);
+button + button {
+  margin-left: 10px;
 }

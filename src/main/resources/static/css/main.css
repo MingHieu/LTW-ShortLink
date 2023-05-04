@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap';
+@import "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap";
 
 :root {
   --button-background: #333;
@@ -127,4 +127,20 @@ input:hover {
 b,
 strong {
   font-weight: bold;
+}
+
+.btn-delete {
+  background-color: var(--error-color);
+}
+
+.btn-delete:hover {
+  background-color: #f81e1e;
+}
+
+.btn-approve {
+  background-color: #4caf50;
+}
+
+.btn-approve:hover {
+  background-color: #3e8e41;
 }
