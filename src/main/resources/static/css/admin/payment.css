@@ -1,60 +1,37 @@
-.payment {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 1em;
-}
-
 .payment h1 {
   text-align: center;
 }
 
-.payment form {
-  background-color: var(--surface);
-  border-radius: 4px;
-  padding: 1em;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.withdraw-money h1 {
+  text-align: center;
+  margin-top: 50px;
 }
 
-.form-group {
-  margin-bottom: 1em;
+.request-money-table {
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-family: Arial, sans-serif;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 0.5em;
-}
-
-.form-group input[type="text"] {
+table {
+  border-collapse: collapse;
   width: 100%;
-  padding: 0.5em;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  box-sizing: border-box;
 }
 
-.input-group {
-  display: flex;
-  justify-content: space-between;
+th,
+td {
+  text-align: left;
+  padding: 8px;
 }
 
-.amount-group {
-  display: flex;
-  justify-content: flex-start;
+th {
+  background-color: #ddd;
 }
 
-.input-group input[type="text"] {
-  width: 49%;
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
-.currency {
-  display: inline-block;
-  padding: 0.5em;
-  background-color: var(--background);
-  border: 1px solid var(--border);
-  border-left: none;
-  border-radius: 0 4px 4px 0;
-}
-
-.payment-submit {
-  color: var(--surface);
+button + button {
+  margin-left: 10px;
 }
