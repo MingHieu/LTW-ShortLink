@@ -4,9 +4,9 @@ import com.ltw.shorten_link.interfaces.Pagination;
 
 public interface BaseServiceInterface<T> {
 
-    void create(T t);
+    T create(T t);
 
-    void update(T t);
+    T update(T t);
 
     T getOne(Long id);
 

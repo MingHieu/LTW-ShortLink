@@ -1,7 +1,9 @@
 package com.ltw.shorten_link.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -10,6 +12,7 @@ import com.ltw.shorten_link.entities.Link;
 import com.ltw.shorten_link.interfaces.ModelAndViewObject;
 import com.ltw.shorten_link.services.LinkService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -32,10 +35,6 @@ public class UserController {
         // shortLink(null);
     }
 
-    public void shortLink(String url) {
-        linkService.create(url);
-    }
-
     @GetMapping("/dashboard")
     public ModelAndView dashboard() {
         ModelAndView mv = new ModelAndView("layouts/main");
@@ -44,12 +43,31 @@ public class UserController {
         return mv;
     }
 
+    @PostMapping("/dashboard")
+    public ModelAndView dashboardPost(@Valid Link link, Errors errors) {
+        ModelAndView mv = new ModelAndView("layouts/main");
+        ModelAndViewObject mvo = new ModelAndViewObject("user/dashboard", "Shorten Link", "user/dashboard.css");
+        if (errors.hasErrors()) {
+            mv.addObject(Utils.ModalAndViewObjectName, mvo);
+            return mv;
+        }
+        String shortLink = linkService.createAndGetShortLink(link);
+        mvo.setData(shortLink);
+        mv.addObject(Utils.ModalAndViewObjectName, mvo);
+        return mv;
+    }
+
+    @GetMapping("/s/{code}")
+    public String getShortLink(@PathVariable String code) {
+        Link link = linkService.getOne(linkService.decode(code));
+        return "redirect:" + link.getUrl();
+    }
+
     @GetMapping("/my-urls")
     public ModelAndView myUrls() {
         ModelAndView mv = new ModelAndView("layouts/main");
         ModelAndViewObject mvo = new ModelAndViewObject("user/my-urls", "My Urls", "user/my-urls.css");
         mv.addObject(Utils.ModalAndViewObjectName, mvo);
-        ;
         return mv;
     }
 

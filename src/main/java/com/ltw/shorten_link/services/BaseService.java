@@ -13,13 +13,13 @@ public class BaseService<T> implements BaseServiceInterface<T> {
     JpaRepository<T, Long> repository;
 
     @Override
-    public void create(T t) {
-        repository.save(t);
+    public T create(T t) {
+        return repository.save(t);
     }
 
     @Override
-    public void update(T t) {
-        repository.save(t);
+    public T update(T t) {
+        return repository.save(t);
     }
 
     @Override
