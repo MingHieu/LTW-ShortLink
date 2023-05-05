@@ -1,17 +1,18 @@
 package com.ltw.shorten_link.entities;
 
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
-import lombok.NonNull;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 @Data
 @Entity
 @Table(name = "links")
@@ -20,21 +21,17 @@ public class Link {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NonNull
-    @Column(name = "short_link", nullable = false)
-    private String shortLink;
-
-    @NonNull
-    @Column(name = "default_link", nullable = false)
-    private String defaultLink;
-
-    
-    @Column(name = "is_affiliate", nullable = false)
-    private boolean isAffiliate;
-
-    @Column(name = "title", nullable = true)
+    @Column(name = "title")
     private String title;
 
-    @OneToMany(targetEntity = Click.class)
-    private List<Click> clicks;
+    @NotBlank(message = "URL is required")
+    @Column(name = "url", nullable = false)
+    private String url;
+
+    @Column(name = "is_affiliate")
+    private boolean isAffiliate = false;
+
+    @ManyToOne
+    @JoinColumn(name = "username", referencedColumnName = "username")
+    private User user;
 }
