@@ -35,6 +35,11 @@ public class UserController {
         // shortLink(null);
     }
 
+    @GetMapping(path = { "user", "user/" })
+    public String root() {
+        return "redirect:/dashboard";
+    }
+
     @GetMapping("/dashboard")
     public ModelAndView dashboard() {
         ModelAndView mv = new ModelAndView("layouts/main");

@@ -15,6 +15,11 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("admin")
 public class AdminController {
 
+  @GetMapping(path = { "", "/" })
+  public String root() {
+    return "redirect:/admin/users";
+  }
+
   @GetMapping("/users")
   public ModelAndView Users() {
     ModelAndView mv = new ModelAndView("layouts/main");
@@ -73,7 +78,8 @@ public class AdminController {
   @GetMapping("/payment/detail")
   public ModelAndView PaymentDetail() {
     ModelAndView mv = new ModelAndView("layouts/main");
-    ModelAndViewObject mvo = new ModelAndViewObject("admin/payment-detail", "Payment Detail", "admin/payment-detail.css");
+    ModelAndViewObject mvo = new ModelAndViewObject("admin/payment-detail", "Payment Detail",
+        "admin/payment-detail.css");
     mv.addObject("role", "admin");
     mv.addObject(Utils.ModalAndViewObjectName, mvo);
     return mv;

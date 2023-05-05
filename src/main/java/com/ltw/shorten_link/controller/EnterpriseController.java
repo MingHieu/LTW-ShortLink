@@ -15,6 +15,11 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("enterprise")
 public class EnterpriseController {
 
+  @GetMapping(path = { "", "/" })
+  public String root() {
+    return "redirect:/enterprise/payment";
+  }
+
   @GetMapping("/payment")
   public ModelAndView Payment() {
     ModelAndView mv = new ModelAndView("layouts/main");

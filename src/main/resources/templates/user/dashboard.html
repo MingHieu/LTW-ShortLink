@@ -1,6 +1,7 @@
 <div class="dashboard">
     <h1>Create new</h1>
-    <p th:if="${data.data}" th:text="'http://localhost:8080/s/'+${data.data}"></p>
+    <a th:if="${data.data}" th:text="'http://localhost:8080/s/'+${data.data}"
+        th:href="'http://localhost:8080/s/'+${data.data}"></a>
 
     <form method="post" th:action="@{/dashboard}" th:object="${link}">
         <div class="input-container">

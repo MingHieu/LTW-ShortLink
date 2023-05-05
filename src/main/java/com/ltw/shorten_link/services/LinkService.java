@@ -39,7 +39,7 @@ public class LinkService extends BaseService<Link> {
             id /= 62;
         }
         for (int i = digits.size() - 1; i < 6; ++i) {
-            digits.add((long) 0);
+            digits.add(0L);
         }
         StringBuilder s = new StringBuilder();
         for (long x : digits) {

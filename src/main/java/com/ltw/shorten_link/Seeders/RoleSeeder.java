@@ -14,9 +14,9 @@ public class RoleSeeder {
     RoleRepository repository;
 
     public void seedData() {
-        Role admin = Role.builder().name("admin").id(1L).build();
-        Role enterprise = Role.builder().name("enterprise").id(2L).build();
-        Role user = Role.builder().name("user").id(3L).build();
+        Role admin = Role.builder().name("admin").id(1).build();
+        Role enterprise = Role.builder().name("enterprise").id(2).build();
+        Role user = Role.builder().name("user").id(3).build();
         repository.saveAll(Arrays.asList(new Role[] { admin, user, enterprise }));
     }
 }

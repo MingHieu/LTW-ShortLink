@@ -10,23 +10,38 @@ import com.ltw.shorten_link.repositories.UserRepository;
 
 @Component
 public class UserSeeder {
-    @Autowired
-    UserRepository repository;
+        @Autowired
+        UserRepository repository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+        @Autowired
+        private PasswordEncoder passwordEncoder;
 
-    @Autowired
-    RoleRepository roleRepository;
+        @Autowired
+        RoleRepository roleRepository;
 
-    public void seedData() {
-        if (repository.count() == 0) {
-            User admin = User.builder().username("admin")
-                    .password(this.passwordEncoder.encode("abcd1234"))
-                    .name("admin")
-                    .money((long) 0)
-                    .role(roleRepository.findById(1L).get()).build();
-            repository.save(admin);
+        public void seedData() {
+                User user = User.builder().id(1)
+                                .username("user")
+                                .password(this.passwordEncoder.encode("1234"))
+                                .name("user")
+                                .money(0L)
+                                .role(roleRepository.findByName("user")).build();
+                repository.save(user);
+
+                User admin = User.builder().id(2)
+                                .username("admin")
+                                .password(this.passwordEncoder.encode("1234"))
+                                .name("admin")
+                                .money(0L)
+                                .role(roleRepository.findByName("admin")).build();
+                repository.save(admin);
+
+                User enterprise = User.builder().id(3)
+                                .username("enterprise")
+                                .password(this.passwordEncoder.encode("1234"))
+                                .name("enterprise")
+                                .money(0L)
+                                .role(roleRepository.findByName("enterprise")).build();
+                repository.save(enterprise);
         }
-    }
 }
