@@ -1,3 +1,10 @@
+.dashboard {
+  background-color: var(--surface);
+  border-radius: 15px;
+  padding: 10px 20px;
+  min-height: 870px;
+}
+
 h1 {
   font-size: 2rem;
   line-height: 3rem;

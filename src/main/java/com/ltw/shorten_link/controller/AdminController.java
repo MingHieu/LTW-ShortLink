@@ -36,7 +36,8 @@ public class AdminController {
   @GetMapping("/withdraw-money")
   public ModelAndView WithdrawMoney() {
     ModelAndView mv = new ModelAndView("layouts/main");
-    ModelAndViewObject mvo = new ModelAndViewObject("admin/withdraw-money", "Withdraw-money", "admin/withdraw-money.css");
+    ModelAndViewObject mvo = new ModelAndViewObject("admin/withdraw-money", "Withdraw-money",
+        "admin/withdraw-money.css");
     mv.addObject("role", "admin");
     mv.addObject(Utils.ModalAndViewObjectName, mvo);
     return mv;
@@ -55,6 +56,24 @@ public class AdminController {
   public ModelAndView Urls() {
     ModelAndView mv = new ModelAndView("layouts/main");
     ModelAndViewObject mvo = new ModelAndViewObject("admin/urls", "Urls", "admin/urls.css");
+    mv.addObject("role", "admin");
+    mv.addObject(Utils.ModalAndViewObjectName, mvo);
+    return mv;
+  }
+
+  @GetMapping("/detail")
+  public ModelAndView UserDetail() {
+    ModelAndView mv = new ModelAndView("layouts/main");
+    ModelAndViewObject mvo = new ModelAndViewObject("admin/user-detail", "User Detail", "admin/user-detail.css");
+    mv.addObject("role", "admin");
+    mv.addObject(Utils.ModalAndViewObjectName, mvo);
+    return mv;
+  }
+
+  @GetMapping("/payment/detail")
+  public ModelAndView PaymentDetail() {
+    ModelAndView mv = new ModelAndView("layouts/main");
+    ModelAndViewObject mvo = new ModelAndViewObject("admin/payment-detail", "Payment Detail", "admin/payment-detail.css");
     mv.addObject("role", "admin");
     mv.addObject(Utils.ModalAndViewObjectName, mvo);
     return mv;
