@@ -22,7 +22,7 @@ const Deposit = () => {
     <div className={classNames('w-screen min-h-screen h-screen flex')}>
       <Sidebar />
       <div className='flex-1  flex items-center justify-center bg-[#f7f5f1]'>
-        <div className='w-11/12 min-h-[870px] bg-white rounded-xl items-center justify-start flex flex-col pt-20'>
+        <div className='w-11/12 min-h-[870px] drop-shadow-2xl bg-white rounded-xl items-center justify-start flex flex-col pt-20'>
           <div className='flex flex-col items-center p-5 rounded-md border-black border-2'>
             <h2 className='self-start font-medium text-2xl mb-8'>
               Deposit Invoice
@@ -74,4 +74,3 @@ const Deposit = () => {
 }
 
 export default Deposit
-

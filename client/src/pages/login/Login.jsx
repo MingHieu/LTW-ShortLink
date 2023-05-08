@@ -3,10 +3,25 @@ import { Button, Checkbox, Form, Input } from 'antd'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import classNames from 'classnames'
 import styles from './style.module.scss'
+import { getUser } from '../../api/api'
 
 const Login = () => {
   const onFinish = (values) => {
-    console.log('Received values of form: ', values)
+    // getUser(values.username, values.password)
+    console.log(values)
+
+    fetch('http://localhost:8080/api/auth/login', {
+      method: 'POST',
+
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    
+      body: JSON.stringify({
+        username: values.username,
+        password: values.password
+      })
+    }).then((res) => console.log(res))
   }
 
   return (

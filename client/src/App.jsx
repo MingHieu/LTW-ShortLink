@@ -12,8 +12,19 @@ import Payment from './pages/payment'
 import Home from './pages/home'
 import Register from './pages/register'
 import MyUrls from './pages/myUrls'
+import UrlDetail from './pages/urlDetail/UrlDetail'
+import UserDetail from './pages/userDetail/UserDetail'
+import Profile from './pages/profile'
 
 const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />
+  },
+  {
+    path: '/profile',
+    element: <Profile />
+  },
   {
     path: '/dashboard',
     element: <DashBoard />
@@ -43,16 +54,20 @@ const router = createBrowserRouter([
     element: <AdminUrls />
   },
   {
+    path: '/urls/detail',
+    element: <UrlDetail />
+  },
+  {
     path: '/users',
     element: <Users />
   },
   {
-    path: '/payment',
-    element: <Payment />
+    path: '/users/detail',
+    element: <UserDetail />
   },
   {
-    path: '/',
-    element: <Home />
+    path: '/payment',
+    element: <Payment />
   },
   {
     path: '/login',
