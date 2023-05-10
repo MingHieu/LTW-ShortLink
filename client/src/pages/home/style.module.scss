@@ -22,3 +22,11 @@
     width: 70%;
   }
 }
+
+.buttonGroup {
+  :global(.ant-form-item-control-input-content) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

@@ -1,11 +1,58 @@
+import apiService from '../services'
 import instance from './axios'
 
-export const getUser = (username, password) =>
+export const login = (username, password) =>
   instance.post('/auth/login', { username, password }).then((response) => {
-    // if (response.data.username) {
-    //   localStorage.setItem('user', JSON.stringify(response.data))
-    // }
+    const token = response?.data.token
+    localStorage.setItem('token', token)
 
-    // return response.data
-    console.log(response)
+    const user = response.data.data
+    localStorage.setItem('user', JSON.stringify(user))
+
+    return response.data
   })
+
+// link
+export const createNewLink = (params) => {
+  return apiService.post('/link/create', params)
+}
+
+export const getAllUrlsByUsername = (username, params) => {
+  return apiService.post(`/link/all/${username}`, params)
+}
+
+export const getAllUrls = (params) => {
+  return apiService.post(`/link/all`, params)
+}
+
+export const getDetailLinkById = (id) => {
+  return apiService.get(`/link/${id}`)
+}
+
+// request
+export const createRequest = (params) => {
+  return apiService.post('request/create', params)
+}
+
+export const updateRequest = (params) => {
+  return apiService.post('request/update', params)
+}
+
+// export const createRequest = (params) => {
+//   return apiService.post('request/create', params)
+// }
+
+// user
+
+export const getAllUsers = (params) => {
+  return apiService.post('/user/all', params)
+}
+
+export const getUser = (username) => {
+  return apiService.get(`/user/${username}`)
+}
+
+// request
+export const getAllRequest = (params) => {
+  return apiService.post('request/all', params)
+}

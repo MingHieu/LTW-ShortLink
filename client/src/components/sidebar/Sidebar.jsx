@@ -7,6 +7,8 @@ import styles from './style.module.scss'
 import Admin from './Admin'
 
 const Sidebar = () => {
+  const user = JSON.parse(localStorage.getItem('user'))
+
   return (
     <div className='w-[300px] h-full flex justify-between items-center flex-col '>
       <Space
@@ -16,8 +18,7 @@ const Sidebar = () => {
           <h1 className='font-extrabold text-5xl text-black'>Shorten Link</h1>
         </a>
         <div className='w-full pl-6'>
-          <User />
-          {/* <Admin /> */}
+          {user && user?.role === 'user' ? <User /> : <Admin />}
         </div>
       </Space>
       <div className='mb-10 flex flex-col items-center justify-center gap-6 '>

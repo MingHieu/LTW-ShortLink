@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from '../../components/sidebar'
 import classNames from 'classnames'
 import styles from './style.module.scss'
 import { Space, Table, Tag } from 'antd'
+import { getAllUsers } from '../../api/api'
+import { DEFAULT_CURRENT, DEFAULT_PAGE_SIZE } from '../../constants/constant'
 
 const columns = [
   {
@@ -17,14 +19,14 @@ const columns = [
     key: 'name'
   },
   {
-    title: 'Email',
-    dataIndex: 'email',
-    key: 'email'
+    title: 'Username',
+    dataIndex: 'username',
+    key: 'username'
   },
   {
     title: 'Roles',
-    key: 'roles',
-    dataIndex: 'roles',
+    key: 'role',
+    dataIndex: 'role',
     filters: [
       {
         text: 'Admin',
@@ -35,54 +37,57 @@ const columns = [
         value: 'user'
       }
     ],
-    onFilter: (value, record) => record.roles.includes(value) === true,
-    render: (_, { roles }) => (
-      <>
-        {roles.map((role, index) => {
-          let color = 'geekbue'
-          switch (role) {
-            case 'admin':
-              color = 'green'
-              break
-            case 'user':
-              color = 'red'
-              break
-            default:
-              break
-          }
-          return (
-            <Tag color={color} key={role}>
-              {role.toUpperCase()}
-            </Tag>
-          )
-        })}
-      </>
-    )
-  }
-]
-
-const data = [
-  {
-    id: '1',
-    name: 'John Brown',
-    email: 'example@gmail.com',
-    roles: ['user']
-  },
-  {
-    id: '2',
-    name: 'Jim Green',
-    email: 'example@gmail.com',
-    roles: ['user']
-  },
-  {
-    id: '3',
-    name: 'Joe Black',
-    email: 'example@gmail.com',
-    roles: ['admin']
+    onFilter: (value, record) => record.role == value,
+    render: (role) => {
+      let color = 'geekbue'
+      switch (role) {
+        case 'admin':
+          color = 'green'
+          break
+        case 'user':
+          color = 'red'
+          break
+        default:
+          break
+      }
+      return (
+        <Tag color={color} key={role}>
+          {role.toUpperCase()}
+        </Tag>
+      )
+    }
   }
 ]
 
 const Users = () => {
+  const [data, setData] = useState([])
+  const [pagination, setPagination] = useState({
+    page: DEFAULT_CURRENT,
+    per_page: DEFAULT_PAGE_SIZE
+  })
+
+  useEffect(() => {
+    getAllUsers({ ...pagination }).then((data) => {
+      const newListUser = data?.data?.data?.map((user) => {
+        const newUser = {
+          id: user.id,
+          username: user.username,
+          name: user.name,
+          role: user.role,
+          money: user.money
+        }
+        return newUser
+      })
+
+      setData(newListUser)
+    })
+  }, [])
+
+  const getDetail = (record) => {
+    window.location.href = `users/detail/${record.username}`
+    // localStorage()
+  }
+
   return (
     <div
       className={classNames(
@@ -101,6 +106,11 @@ const Users = () => {
             dataSource={data}
             bordered={true}
             className={classNames('mx-5', styles.users)}
+            onRow={(record, rowIndex) => {
+              return {
+                onClick: (event) => getDetail(record)
+              }
+            }}
           />
         </div>
       </div>

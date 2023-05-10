@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from '../../components/sidebar'
-import { Button, Form, Input, Space } from 'antd'
+import { Button, Checkbox, Form, Input, Space } from 'antd'
 import classNames from 'classnames'
 import styles from './style.module.scss'
+import { createNewLink } from '../../api/api'
 
 const DashBoard = () => {
+  const [shortenLink, setShortenLink] = useState(null)
+
   const onFinish = (values) => {
     console.log('Success:', values)
+
+    createNewLink(values)
   }
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo)
@@ -15,7 +20,7 @@ const DashBoard = () => {
   return (
     <div
       className={classNames(
-        'w-screen min-h-screen h-screen flex',
+        'min-h-screen h-screen flex',
         styles.dashboard
       )}
     >
@@ -38,7 +43,7 @@ const DashBoard = () => {
             </Form.Item>
             <Form.Item
               label='Destination'
-              name='destination'
+              name='url'
               required
               rules={[
                 {
@@ -50,12 +55,10 @@ const DashBoard = () => {
               <Input />
             </Form.Item>
 
-            <Form.Item
-              wrapperCol={{
-                offset: 20,
-                span: 4
-              }}
-            >
+            <Form.Item className={styles.buttonGroup}>
+              <Form.Item name='isAffiliate' valuePropName='checked' noStyle>
+                <Checkbox>Remember me</Checkbox>
+              </Form.Item>
               <Button type='primary' htmlType='submit'>
                 Create
               </Button>

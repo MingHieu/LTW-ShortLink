@@ -1,8 +1,12 @@
 import classNames from 'classnames'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from '../../components/sidebar'
 import { Table } from 'antd'
 import styles from './style.module.scss'
+import { useQuery } from '@tanstack/react-query'
+import { DEFAULT_CURRENT, DEFAULT_PAGE_SIZE } from '../../constants/constant'
+import { getAllUrlsByUsername } from '../../api/api'
+import { encode, formatDate } from '../../api/helper'
 
 const columns = [
   {
@@ -18,7 +22,6 @@ const columns = [
       <div className='flex flex-col'>
         <a href={links.shortLink} target='_blank' rel='noreferrer'>
           {links.shortLink}
-          {console.log(links)}
         </a>
         <span className='text-gray-500'>{links.realLink} </span>
       </div>
@@ -38,43 +41,44 @@ const columns = [
     title: 'Create At',
     key: 'create_at',
     dataIndex: 'create_at'
-  }
-]
-
-const data = [
-  {
-    id: '1',
-    links: {
-      shortLink: 'https://abcdef',
-      realLink: 'https://www.baidu.com'
-    },
-    title: 'My Id',
-    clicks: '10',
-    create_at: '2023-03-01'
   },
   {
-    id: '2',
-    links: {
-      shortLink: 'https://abcdef',
-      realLink: 'https://www.baidu.com'
-    },
-    title: 'My Id',
-    clicks: '10',
-    create_at: '2023-03-01'
-  },
-  {
-    id: '3',
-    links: {
-      shortLink: 'https://abcdef',
-      realLink: 'https://www.baidu.com'
-    },
-    title: 'My Id',
-    clicks: '10',
-    create_at: '2023-03-01'
+    title: 'Affiliate',
+    key: 'affiliate',
+    dataIndex: 'affiliate'
   }
 ]
 
 const MyUrls = () => {
+  const [data, setData] = useState([])
+  const [pagination, setPagination] = useState({
+    page: DEFAULT_CURRENT,
+    per_page: DEFAULT_PAGE_SIZE
+  })
+  const user = JSON.parse(localStorage.getItem('user'))
+
+  useEffect(() => {
+    getAllUrlsByUsername(user.username, { ...pagination }).then((data) => {
+      const newData = data?.data?.data?.map((item) => {
+        const newItem = {
+          id: item.id,
+          links: {
+            shortLink: encode(item.id),
+            realLink: item.url
+          },
+          title: item.title,
+          clicks: item.clicks,
+          create_at: formatDate(item.createdAt),
+          affiliate: item.affiliate
+        }
+        return newItem
+      })
+
+      setData(newData)
+    })
+  }, [])
+
+
   return (
     <div className={classNames('w-screen min-h-screen h-screen flex')}>
       <Sidebar />

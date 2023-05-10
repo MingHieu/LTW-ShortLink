@@ -1,25 +1,39 @@
-import React from 'react'
-import { Button, Form, Image, Input, Space } from 'antd'
+import React, { useEffect, useState } from 'react'
+import { Button, Checkbox, Form, Image, Input, Space } from 'antd'
 import classNames from 'classnames'
 
 import styles from './style.module.scss'
 import facebook from '../../assets/images/facebook.png'
 import instagram from '../../assets/images/instagram.png'
 import telegram from '../../assets/images/telegram.png'
-import tiktok from '../../assets/images/tiktok.png'
 import twitter from '../../assets/images/twitter.png'
 import whatsapp from '../../assets/images/whatsapp.png'
+import { createNewLink } from '../../api/api'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
+  const navigate = useNavigate()
+  const token = localStorage.getItem('token')
+  useEffect(() => {
+    if (token) {
+      navigate('/dashboard')
+    }
+  }, [])
+
+  const [shortenLink, setShortenLink] = useState(null)
+
   const onFinish = (values) => {
-    console.log('Success:', values)
+    createNewLink(values).then((data) => {
+      setShortenLink(data?.data?.url)
+    })
   }
+
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo)
   }
 
   return (
-    <div className='w-screen min-h-screen h-screen flex flex-col'>
+    <div className=' min-h-screen h-screen flex flex-col'>
       <Space className='flex items-center justify-between'>
         <a href='/' className='hover:no-underline'>
           <h1 className='font-extrabold text-5xl text-black m-5'>
@@ -37,7 +51,7 @@ const Home = () => {
         </Button>
       </Space>
 
-      <div className='w-full py-10 px-40 bg-[#f7f5f1] flex justify-center'>
+      <div className='w-full py-10 px-40 bg-[#f7f5f1] flex items-center flex-col'>
         <Form
           className={classNames('w-10/12', styles.form)}
           name='basic'
@@ -49,16 +63,25 @@ const Home = () => {
           onFinishFailed={onFinishFailed}
           autoComplete='off'
         >
-          <Form.Item className='text-xl' label='Destination' name='destination'>
+          <Form.Item className='text-xl' label='Destination' name='url'>
             <Input />
+            {shortenLink && (
+              <div className='self-start font-bold'>
+                Your Shorten Link:
+                <a
+                  className='ml-5'
+                  href={`http://localhost:3000/${shortenLink}`}
+                >
+                  http://localhost:3000/{shortenLink}
+                </a>
+              </div>
+            )}
           </Form.Item>
 
-          <Form.Item
-            wrapperCol={{
-              offset: 20,
-              span: 4
-            }}
-          >
+          <Form.Item className={styles.buttonGroup}>
+            <Form.Item name='isAffiliate' valuePropName='checked' noStyle>
+              <Checkbox>Remember me</Checkbox>
+            </Form.Item>
             <Button className='float-left' type='primary' htmlType='submit'>
               Create
             </Button>

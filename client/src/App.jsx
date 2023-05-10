@@ -54,7 +54,7 @@ const router = createBrowserRouter([
     element: <AdminUrls />
   },
   {
-    path: '/urls/detail',
+    path: '/urls/detail/:id',
     element: <UrlDetail />
   },
   {
@@ -62,7 +62,7 @@ const router = createBrowserRouter([
     element: <Users />
   },
   {
-    path: '/users/detail',
+    path: '/users/detail/:username',
     element: <UserDetail />
   },
   {

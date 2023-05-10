@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from '../../components/sidebar'
 import classNames from 'classnames'
 import styles from './style.module.scss'
-import { Avatar, Button, Card, Checkbox, Form } from 'antd'
+import { Button, Card } from 'antd'
 import Images from '../../assets/images'
-import { AntDesignOutlined } from '@ant-design/icons'
+import { getDetailLinkById } from '../../api/api'
+import { encode, formatDate } from '../../api/helper'
 
-const UrlsDetail = () => {
+const urlDetail = () => {
   const fields = [
     {
       title: 'Tiêu đề',
@@ -22,7 +23,8 @@ const UrlsDetail = () => {
     },
     {
       title: 'Trạng thái',
-      key: 'affiliate'
+      key: 'affiliate',
+      // render: 
     },
     {
       title: 'Người tạo',
@@ -34,18 +36,38 @@ const UrlsDetail = () => {
     }
   ]
 
-  const urlsDetail = {
-    title: 'John Wick',
-    short_link: 'john go',
-    real_link: '29/09/1999',
-    affiliate: 'example@gmail.com',
-    user_create: 'John',
-    create_at: '0123456789'
+  const initial = {
+    title: '',
+    short_link: '',
+    real_link: '',
+    affiliate: '',
+    user_create: '',
+    create_at: ''
   }
 
   const onChange = (e) => {
     console.log(`checked = ${e.target.checked}`)
   }
+
+  const [urlDetail, setUrlDetail] = useState(initial)
+
+  const id = window.location.href.slice(34)
+
+  useEffect(() => {
+    getDetailLinkById(id).then((data) => {
+      const url = data?.data
+      const newUrl = {
+        title: url.title,
+        short_link: encode(url.id),
+        real_link: url.url,
+        affiliate: url.affiliate,
+        user_create: url?.user.name,
+        create_at: formatDate(url.createAt)
+      }
+
+      setUrlDetail(newUrl)
+    })
+  }, [])
 
   return (
     <div className={classNames('w-screen min-h-screen h-screen flex')}>
@@ -67,7 +89,7 @@ const UrlsDetail = () => {
             {fields.map((field) => (
               <div key={field.key} className={styles.info}>
                 <p className={styles.info__label}>{field.title}</p>
-                <p className={styles.info__value}>{urlsDetail[field.key]}</p>
+                <p className={styles.info__value}>{urlDetail[field.key]}</p>
               </div>
             ))}
           </Card>
@@ -87,4 +109,4 @@ const UrlsDetail = () => {
   )
 }
 
-export default UrlsDetail
+export default urlDetail

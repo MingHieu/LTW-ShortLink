@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from '../../components/sidebar'
 import classNames from 'classnames'
 import styles from './style.module.scss'
 import { Avatar, Card } from 'antd'
 import Images from '../../assets/images'
 import { AntDesignOutlined } from '@ant-design/icons'
+import { getUser } from '../../api/api'
 
 const UserDetail = () => {
   const fields = [
@@ -30,13 +31,29 @@ const UserDetail = () => {
     }
   ]
 
-  const userDetail = {
-    name: 'John Wick',
-    username: 'john go',
+  const initial = {
+    name: '',
+    username: '',
     dateOfBirth: '29/09/1999',
     email: 'example@gmail.com',
     phoneNumber: '0123456789'
   }
+
+  const [userDetail, setUserDetail] = useState(initial)
+  const [money, setMoney] = useState()
+  const username = window.location.href.slice(35)
+
+  useEffect(() => {
+    getUser(username).then((data) => {
+      const user = data?.data
+      const newUser = {
+        name: user.name,
+        username: user.username
+      }
+
+      setUserDetail({ ...userDetail, ...newUser })
+    })
+  }, [])
 
   return (
     <div className={classNames('w-screen min-h-screen h-screen flex')}>

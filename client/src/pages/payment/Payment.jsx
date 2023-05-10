@@ -1,8 +1,11 @@
 import classNames from 'classnames'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from '../../components/sidebar'
 import { Table, Tag } from 'antd'
 import styles from './style.module.scss'
+import { DEFAULT_CURRENT, DEFAULT_PAGE_SIZE } from '../../constants/constant'
+import { getAllRequest } from '../../api/api'
+import { formatDate } from '../../api/helper'
 
 const Payment = () => {
   const columns = [
@@ -20,7 +23,7 @@ const Payment = () => {
         return (
           <div className='flex flex-col'>
             {user.username}
-            <span className='text-gray-500'>{user.email || '-'}</span>
+            <span className='text-gray-500'>{user.name || '-'}</span>
           </div>
         )
       }
@@ -36,19 +39,27 @@ const Payment = () => {
       key: 'amount'
     },
     {
+      title: 'Type',
+      dataIndex: 'type',
+      key: 'type',
+      render: (type) => {
+        return <Tag color='yellow'>{type}</Tag>
+      }
+    },
+    {
       title: 'Status',
       key: 'status',
       dataIndex: 'status',
       render: (status) => {
         let color = ''
         switch (status) {
-          case 'Pending':
+          case 'PENDING':
             color = 'blue'
             break
-          case 'Approved':
+          case 'ACCEPTED':
             color = 'green'
             break
-          case 'Rejected':
+          case 'REJECTED':
             color = 'red'
             break
           default:
@@ -56,43 +67,37 @@ const Payment = () => {
             break
         }
 
-        return <Tag color={color}>{status.toUpperCase()}</Tag>
+        return <Tag color={color}>{status}</Tag>
       }
     }
   ]
 
-  const data = [
-    {
-      id: '1',
-      date: 'My Id',
-      amount: '10',
-      user: {
-        username: 'John Doe',
-        email: 'example@gmail.com'
-      },
-      status: 'Pending'
-    },
-    {
-      id: '2',
-      date: 'My Id',
-      amount: '10',
-      user: {
-        username: 'John Doe',
-        email: 'example@gmail.com'
-      },
-      status: 'Approved'
-    },
-    {
-      id: '3',
-      date: 'My Id',
-      amount: '10',
-      user: {
-        username: 'John Doe',
-        email: 'example@gmail.com'
-      },
-      status: 'Rejected'
-    }
-  ]
+  const [data, setData] = useState([])
+  const [pagination, setPagination] = useState({
+    page: DEFAULT_CURRENT,
+    per_page: DEFAULT_PAGE_SIZE
+  })
+
+  useEffect(() => {
+    getAllRequest({ ...pagination }).then((data) => {
+      const requests = data?.data?.data?.map((request) => {
+        return {
+          id: request.id,
+          date: formatDate(request.createAt),
+          amount: request.value,
+          user: {
+            username: request.user.username,
+            name: request.user.name
+          },
+          status: request.status,
+          type: request.type
+        }
+      })
+
+      setData(requests)
+    })
+  }, [])
+
 
   return (
     <div className={classNames('w-screen min-h-screen h-screen flex')}>

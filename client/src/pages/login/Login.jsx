@@ -1,27 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button, Checkbox, Form, Input } from 'antd'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import classNames from 'classnames'
+import { useNavigate } from 'react-router-dom'
 import styles from './style.module.scss'
-import { getUser } from '../../api/api'
+import { login } from '../../api/api'
 
 const Login = () => {
+  const navigate = useNavigate()
+  const token = localStorage.getItem('token')
+  useEffect(() => {
+    if (token) {
+      navigate('/dashboard')
+    }
+  }, [])
+
   const onFinish = (values) => {
-    // getUser(values.username, values.password)
-    console.log(values)
-
-    fetch('http://localhost:8080/api/auth/login', {
-      method: 'POST',
-
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    
-      body: JSON.stringify({
-        username: values.username,
-        password: values.password
-      })
-    }).then((res) => console.log(res))
+    login(values.username, values.password).then(() => {
+      navigate('/dashboard')
+    })
   }
 
   return (
