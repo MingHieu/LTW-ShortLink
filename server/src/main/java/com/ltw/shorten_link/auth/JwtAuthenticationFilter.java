@@ -51,7 +51,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 }
                 filterChain.doFilter(request, response);
             } else {
-                if (!request.getServletPath().equals("/link/create")) {
+                if (!request.getServletPath().equals("/link/create") && !request.getServletPath()
+                        .startsWith("/link/s")) {
                     throw new Exception("Invalid JWT token");
                 }
                 filterChain.doFilter(request, response);
