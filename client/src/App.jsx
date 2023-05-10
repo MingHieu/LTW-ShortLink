@@ -15,6 +15,7 @@ import MyUrls from './pages/myUrls'
 import UrlDetail from './pages/urlDetail/UrlDetail'
 import UserDetail from './pages/userDetail/UserDetail'
 import Profile from './pages/profile'
+import ShortLink from './pages/shortLink'
 
 const router = createBrowserRouter([
   {
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
   {
     path: '/register',
     element: <Register />
+  },
+  {
+    path: '/s/:code',
+    element: <ShortLink />
   }
 ])
 
