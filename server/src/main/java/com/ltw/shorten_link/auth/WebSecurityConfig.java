@@ -71,7 +71,7 @@ public class WebSecurityConfig {
         http.csrf().disable();
         http.authorizeHttpRequests(authorize -> authorize
                 .requestMatchers("/auth/login", "/auth/signup",
-                        "/link/create", "/link/s/*")
+                        "/link/create", "/link/s/*", "/click/create")
                 .permitAll()
                 .anyRequest().authenticated());
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
