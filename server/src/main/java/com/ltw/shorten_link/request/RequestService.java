@@ -37,6 +37,14 @@ public class RequestService {
     public Request update(UpdateRequestRequest body) {
         Request request = requestRepository.findById(body.getId()).get();
         request.setStatus(body.getStatus());
+        User user = userRepository.findByUsername(request.getUser().getUsername());
+        if (body.getStatus().equals(Request.Status.ACCEPTED)) {
+            user.setMoney(user.getMoney() + request.getValue());
+        } else {
+            if (user.getMoney() >= request.getValue()) {
+                user.setMoney(user.getMoney() - request.getValue());
+            }
+        }
         return requestRepository.save(request);
     }
 

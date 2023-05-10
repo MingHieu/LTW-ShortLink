@@ -1,5 +1,8 @@
 package com.ltw.shorten_link.link;
 
+import java.util.List;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -45,5 +48,15 @@ public class LinkController {
     public Pagination<CustomLink> getManyByUsername(@PathVariable String username,
             @Valid @RequestBody Pagination<CustomLink> body) {
         return linkService.getManyByUsername(username, body);
+    }
+
+    @PostMapping("affiliate/{id}")
+    public Link acceptAffiliate(@PathVariable long id) {
+        return linkService.acceptAffiliate(id);
+    }
+
+    @GetMapping("affiliate/all")
+    public Set<Link> getAffiliatedList() {
+        return linkService.getAffiliatedList();
     }
 }

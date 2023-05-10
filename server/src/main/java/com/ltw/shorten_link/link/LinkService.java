@@ -1,7 +1,10 @@
 package com.ltw.shorten_link.link;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +34,8 @@ public class LinkService {
         link.setTitle(body.getTitle());
         link.setUrl(body.getUrl());
         link.setAffiliate(body.getIsAffiliate());
+        link.setExpectedClicks(body.getExpectedClicks());
+        link.setMoney(body.getMoney());
         try {
             JwtUserDetails userDetails = (JwtUserDetails) SecurityContextHolder.getContext().getAuthentication()
                     .getPrincipal();
@@ -90,5 +95,29 @@ public class LinkService {
         List<Link> links = linkRepository.findAll(PageRequest.of(body.page, body.per_page)).getContent();
         body.setData(links);
         return body;
+    }
+
+    public Link acceptAffiliate(long id) {
+        Link link = linkRepository.findById(id).get();
+        if (!link.isAffiliate()) {
+            return link;
+        }
+        JwtUserDetails userDetails = (JwtUserDetails) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();
+        User user = userRepository.findByUsername(userDetails.getUsername());
+        if (link.getUsersAffiliated() != null) {
+            link.getUsersAffiliated().add(user);
+        } else {
+            link.setUsersAffiliated(new HashSet<User>(Arrays.asList(new User[] { user })));
+        }
+        linkRepository.save(link);
+        return link;
+    }
+
+    public Set<Link> getAffiliatedList() {
+        JwtUserDetails userDetails = (JwtUserDetails) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();
+        User user = userRepository.findByUsername(userDetails.getUsername());
+        return linkRepository.findAllAffiliateByUserId(user.getId());
     }
 }
