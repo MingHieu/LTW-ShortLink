@@ -23,9 +23,12 @@ const Home = () => {
   const [shortenLink, setShortenLink] = useState(null)
 
   const onFinish = (values) => {
-    createNewLink(values).then((data) => {
-      setShortenLink(data?.data?.url)
-    })
+    createNewLink({ title: '', isAffiliate: false, url: values.url }).then(
+      (data) => {
+        setShortenLink(data?.data?.url)
+        // console.log(data)
+      }
+    )
   }
 
   const onFinishFailed = (errorInfo) => {
@@ -72,7 +75,7 @@ const Home = () => {
                   className='ml-5'
                   href={`http://localhost:3000/${shortenLink}`}
                 >
-                  http://localhost:3000/{shortenLink}
+                  http://localhost:3000/s/{shortenLink}
                 </a>
               </div>
             )}

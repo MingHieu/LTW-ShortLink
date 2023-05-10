@@ -1,11 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button, Checkbox, Form, Input } from 'antd'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import classNames from 'classnames'
 import styles from './style.module.scss'
+import { useNavigate } from 'react-router-dom'
+import { register } from '../../api/api'
+
 const Register = () => {
+  const navigate = useNavigate()
+  const token = localStorage.getItem('token')
+  useEffect(() => {
+    if (token) {
+      navigate('/dashboard')
+    }
+  }, [])
   const onFinish = (values) => {
-    console.log('Received values of form: ', values)
+    if (values.password === values.confirmPassword) {
+    }
+    register(values.username, values.password).then(() => {
+      navigate('/dashboard')
+    })
   }
 
   return (
@@ -53,8 +67,8 @@ const Register = () => {
             size='large'
           />
         </Form.Item>
-        <Form.Item
-          name='confirm-password'
+        {/* <Form.Item
+          name='confirmPassword'
           rules={[
             {
               required: true,
@@ -68,7 +82,7 @@ const Register = () => {
             placeholder='Confirm Password'
             size='large'
           />
-        </Form.Item>
+        </Form.Item> */}
 
         <Form.Item
           className={

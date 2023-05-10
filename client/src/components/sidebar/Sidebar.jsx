@@ -8,6 +8,9 @@ import Admin from './Admin'
 
 const Sidebar = () => {
   const user = JSON.parse(localStorage.getItem('user'))
+  const handleClick = () => {
+    localStorage.removeItem('token'), localStorage.removeItem('user')
+  }
 
   return (
     <div className='w-[300px] h-full flex justify-between items-center flex-col '>
@@ -30,11 +33,9 @@ const Sidebar = () => {
           />
           <span className='username-header'></span>
         </a>
-        <a href='/signOut'>
-          <Button type='primary' className='bg-red-500'>
-            <i className='fa-solid fa-right-from-bracket'></i>Đăng xuất
-          </Button>
-        </a>
+        <Button type='primary' className='bg-red-500' onClick={handleClick}>
+          <i className='fa-solid fa-right-from-bracket'></i>Đăng xuất
+        </Button>
       </div>
     </div>
   )

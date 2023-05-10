@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from '../../components/sidebar'
 import classNames from 'classnames'
 import styles from './style.module.scss'
 import { Avatar, Card, Tag } from 'antd'
 import Images from '../../assets/images'
-import { AntDesignOutlined } from '@ant-design/icons'
 
 const Profile = () => {
   const fields = [
@@ -30,13 +29,31 @@ const Profile = () => {
     }
   ]
 
-  const userDetail = {
+  const initial = {
     name: 'John Wick',
     username: 'john go',
     dateOfBirth: '29/09/1999',
     email: 'example@gmail.com',
-    phoneNumber: '0123456789'
+    phoneNumber: '0123456789',
+    money: ''
   }
+
+  const [userDetail, setUserDetail] = useState(initial)
+  const user = JSON.parse(localStorage.getItem('user'))
+  console.log(user)
+  useEffect(() => {
+    const newUser = {
+      name: user.name,
+      username: user.username
+    }
+
+    setUserDetail({
+      ...userDetail,
+      ...newUser
+    })
+  }, [])
+
+  console.log(userDetail)
 
   return (
     <div className={classNames('w-screen min-h-screen h-screen flex')}>
@@ -46,7 +63,7 @@ const Profile = () => {
           <Avatar size={200} icon={<img src={Images.avatar} />} />
 
           <Tag className='absolute right-12 top-16 p-3 font-bold text-xl border-none bg-blue-400 drop-shadow-[15px_35px_35px_rgba(62,225,246,0.8)]'>
-            Amount: <span className='text-white'>100$</span>
+            Amount: <span className='text-white'>{userDetail.money}$</span>
           </Tag>
 
           <Card

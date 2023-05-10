@@ -12,6 +12,17 @@ export const login = (username, password) =>
     return response.data
   })
 
+export const register = (username, password) =>
+  instance.post('/auth/signup', { username, password }).then((response) => {
+    const token = response?.data.token
+    localStorage.setItem('token', token)
+
+    const user = response.data.data
+    localStorage.setItem('user', JSON.stringify(user))
+
+    return response.data
+  })
+
 // link
 export const createNewLink = (params) => {
   return apiService.post('/link/create', params)
