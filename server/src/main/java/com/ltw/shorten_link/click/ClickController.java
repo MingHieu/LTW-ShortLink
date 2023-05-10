@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ltw.shorten_link.click.payload.CreateClickRequest;
 
 import jakarta.validation.Valid;
+import jakarta.websocket.server.PathParam;
 
 @RestController
 @RequestMapping("click")
@@ -17,7 +18,7 @@ public class ClickController {
     private ClickService clickService;
 
     @PostMapping("create")
-    public Click create(@Valid @RequestBody CreateClickRequest body) {
-        return clickService.create(body.getLinkId());
+    public Click create(@Valid @RequestBody CreateClickRequest body, @PathParam(value = "username") String username) {
+        return clickService.create(body.getLinkId(), username);
     }
 }

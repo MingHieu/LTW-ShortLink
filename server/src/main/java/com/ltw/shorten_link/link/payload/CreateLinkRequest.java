@@ -11,4 +11,8 @@ public class CreateLinkRequest {
     private String url;
 
     private Boolean isAffiliate = false;
+
+    private Long expectedClicks;
+
+    private Long money;
 }
