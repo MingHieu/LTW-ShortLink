@@ -83,7 +83,7 @@ const Home = () => {
 
           <Form.Item className={styles.buttonGroup}>
             <Form.Item name='isAffiliate' valuePropName='checked' noStyle>
-              <Checkbox>Remember me</Checkbox>
+              <Checkbox>Is Affiliate</Checkbox>
             </Form.Item>
             <Button className='float-left' type='primary' htmlType='submit'>
               Create

@@ -49,9 +49,9 @@ export const updateRequest = (params) => {
   return apiService.post('request/update', params)
 }
 
-// export const createRequest = (params) => {
-//   return apiService.post('request/create', params)
-// }
+export const getRequestByUsername = (username, params) => {
+  return apiService.post(`request/all/${username}`, params)
+}
 
 // user
 

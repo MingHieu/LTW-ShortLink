@@ -3,7 +3,6 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Login from './pages/login'
 import DashBoard from './pages/dashboard'
 import Deposit from './pages/deposit'
-import LinkAffiliate from './pages/LinkAffiliate'
 import Amount from './pages/amount'
 import Statistics from './pages/statistic'
 import AdminUrls from './pages/adminUrls'
@@ -16,6 +15,7 @@ import UrlDetail from './pages/urlDetail/UrlDetail'
 import UserDetail from './pages/userDetail/UserDetail'
 import Profile from './pages/profile'
 import ShortLink from './pages/shortLink'
+import Affiliate from './pages/affiliate'
 
 const router = createBrowserRouter([
   {
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/link-affiliate',
-    element: <LinkAffiliate />
+    element: <Affiliate />
   },
   {
     path: '/amount',
