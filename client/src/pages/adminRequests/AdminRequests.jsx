@@ -7,7 +7,7 @@ import { DEFAULT_CURRENT, DEFAULT_PAGE_SIZE } from '../../constants/constant'
 import { getAllRequest } from '../../api/api'
 import { formatDate } from '../../api/helper'
 
-const Payment = () => {
+const AdminRequests = () => {
   const columns = [
     {
       title: 'ID',
@@ -98,6 +98,9 @@ const Payment = () => {
     })
   }, [])
 
+  const getDetail = (record) => {
+    window.location.href = `requests/detail/${record.id}`
+  }
 
   return (
     <div className={classNames('w-screen min-h-screen h-screen flex')}>
@@ -111,11 +114,10 @@ const Payment = () => {
             columns={columns}
             dataSource={data}
             bordered={true}
-            className={classNames('', styles.payment)}
-            pagination={false}
+            className={classNames('', styles.requests)}
             onRow={(record, rowIndex) => {
               return {
-                onClick: (event) => console.log(rowIndex) // double click row
+                onClick: (event) => getDetail(record) // double click row
               }
             }}
           />
@@ -125,4 +127,4 @@ const Payment = () => {
   )
 }
 
-export default Payment
+export default AdminRequests

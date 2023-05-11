@@ -6,6 +6,7 @@ import { Avatar, Card } from 'antd'
 import Images from '../../assets/images'
 import { AntDesignOutlined } from '@ant-design/icons'
 import { getUser } from '../../api/api'
+import { useParams } from 'react-router-dom'
 
 const UserDetail = () => {
   const fields = [
@@ -41,10 +42,11 @@ const UserDetail = () => {
 
   const [userDetail, setUserDetail] = useState(initial)
   const [money, setMoney] = useState()
-  const username = window.location.href.slice(35)
+  const { username } = useParams()
 
   useEffect(() => {
     getUser(username).then((data) => {
+      console.log(data)
       const user = data?.data
       const newUser = {
         name: user.name,

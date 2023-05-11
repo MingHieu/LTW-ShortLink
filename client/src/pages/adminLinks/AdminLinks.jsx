@@ -4,32 +4,15 @@ import Sidebar from '../../components/sidebar'
 import { Table } from 'antd'
 import styles from './style.module.scss'
 import { getAllUrls } from '../../api/api'
-import { encode } from '../../api/helper'
+import { encode, formatDate } from '../../api/helper'
 import { DEFAULT_CURRENT, DEFAULT_PAGE_SIZE } from '../../constants/constant'
 
 const columns = [
   {
     title: 'ID',
     dataIndex: 'id',
-    key: 'id'
-  },
-  {
-    title: 'Short Link',
-    dataIndex: 'links',
-    key: 'links',
-    render: (_, { links }) => (
-      <div className='flex flex-col'>
-        <a href={links.shortLink} target='_blank' rel='noreferrer'>
-          {links.shortLink}
-        </a>
-        <span className='text-gray-500'>{links.realLink} </span>
-      </div>
-    )
-  },
-  {
-    title: 'User',
-    dataIndex: 'user',
-    key: 'user'
+    key: 'id',
+    render: (text) => <a>{text}</a>
   },
   {
     title: 'Title',
@@ -37,51 +20,30 @@ const columns = [
     key: 'title'
   },
   {
+    title: 'Url',
+    dataIndex: 'links',
+    key: 'links',
+    render: (_, { links }) => links.realLink
+  },
+  {
+    title: 'Short url',
+    dataIndex: 'links',
+    key: 'links',
+    render: (_, { links }) => location.origin + '/' + links.shortLink
+  },
+  {
     title: 'Clicks',
     dataIndex: 'clicks',
     key: 'clicks'
   },
   {
-    title: 'Create At',
-    key: 'create_at',
-    dataIndex: 'create_at'
+    title: 'Created at',
+    key: 'createdAt',
+    dataIndex: 'createdAt'
   }
 ]
 
-// const data = [
-//   {
-//     id: '1',
-//     links: {
-//       shortLink: 'https://abcdef',
-//       realLink: 'https://www.baidu.com'
-//     },
-//     title: 'My Id',
-//     clicks: '10',
-//     create_at: '2023-03-01'
-//   },
-//   {
-//     id: '2',
-//     links: {
-//       shortLink: 'https://abcdef',
-//       realLink: 'https://www.baidu.com'
-//     },
-//     title: 'My Id',
-//     clicks: '10',
-//     create_at: '2023-03-01'
-//   },
-//   {
-//     id: '3',
-//     links: {
-//       shortLink: 'https://abcdef',
-//       realLink: 'https://www.baidu.com'
-//     },
-//     title: 'My Id',
-//     clicks: '10',
-//     create_at: '2023-03-01'
-//   }
-// ]
-
-const AdminUrls = () => {
+const AdminLinks = () => {
   const [data, setData] = useState()
   const [pagination, setPagination] = useState({
     page: DEFAULT_CURRENT,
@@ -90,6 +52,7 @@ const AdminUrls = () => {
 
   useEffect(() => {
     getAllUrls({ ...pagination }).then((data) => {
+      console.log(data)
       const newUrls = data?.data?.data?.map((url) => {
         const newUrl = {
           id: url.id,
@@ -100,7 +63,7 @@ const AdminUrls = () => {
           user: url.user?.username,
           title: url.title,
           clicks: url.clicks,
-          create_at: url.createdAt,
+          createdAt: formatDate(url.createdAt),
           affiliate: url.affiliate
         }
         return newUrl
@@ -111,7 +74,7 @@ const AdminUrls = () => {
   }, [])
 
   const getDetail = (record) => {
-    window.location.href = `urls/detail/${record.id}`
+    window.location.href = `/links/detail/${record.id}`
   }
 
   return (
@@ -120,13 +83,13 @@ const AdminUrls = () => {
       <div className='flex-1  flex items-center justify-center bg-[#f7f5f1]'>
         <div className='w-11/12 min-h-[870px] drop-shadow-2xl bg-white rounded-xl items-start pt-20'>
           <h2 className='mb-10 text-center text-black font-bold text-4xl'>
-            My Urls
+            Links
           </h2>
           <Table
             columns={columns}
             dataSource={data}
             bordered={true}
-            className={classNames('mx-5', styles.myUrls)}
+            className={classNames('mx-5', styles.links)}
             onRow={(record, rowIndex) => {
               return {
                 onClick: (event) => getDetail(record)
@@ -139,4 +102,4 @@ const AdminUrls = () => {
   )
 }
 
-export default AdminUrls
+export default AdminLinks

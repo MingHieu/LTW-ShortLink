@@ -6,6 +6,7 @@ import { Button, Card } from 'antd'
 import Images from '../../assets/images'
 import { getDetailLinkById } from '../../api/api'
 import { encode, formatDate } from '../../api/helper'
+import { useParams } from 'react-router-dom'
 
 const urlDetail = () => {
   const fields = [
@@ -23,16 +24,16 @@ const urlDetail = () => {
     },
     {
       title: 'Trạng thái',
-      key: 'affiliate',
-      // render: 
+      key: 'affiliate'
+      // render:
     },
     {
       title: 'Người tạo',
       key: 'user_create'
     },
     {
-      title: 'Create at',
-      key: 'create_at'
+      title: 'Thời gian tạo',
+      key: 'createAt'
     }
   ]
 
@@ -42,7 +43,7 @@ const urlDetail = () => {
     real_link: '',
     affiliate: '',
     user_create: '',
-    create_at: ''
+    createAt: ''
   }
 
   const onChange = (e) => {
@@ -51,18 +52,19 @@ const urlDetail = () => {
 
   const [urlDetail, setUrlDetail] = useState(initial)
 
-  const id = window.location.href.slice(34)
+  const { id } = useParams()
 
   useEffect(() => {
     getDetailLinkById(id).then((data) => {
+      console.log(data)
       const url = data?.data
       const newUrl = {
         title: url.title,
-        short_link: encode(url.id),
+        short_link: location.origin + '/' + encode(url.id),
         real_link: url.url,
-        affiliate: url.affiliate,
-        user_create: url?.user.name,
-        create_at: formatDate(url.createAt)
+        affiliate: url.affiliate ? 'Link affiliate' : 'Link bình thường',
+        user_create: url.user?.name ?? '',
+        createAt: formatDate(url.createAt)
       }
 
       setUrlDetail(newUrl)
@@ -98,11 +100,7 @@ const urlDetail = () => {
               'self-end pr-20 flex gap-10',
               styles.buttonGroup
             )}
-          >
-            <Button className='bg-red-500'>Reject</Button>
-            <Button className='bg-blue-500'>Approve</Button>
-          </div>
-          ;
+          ></div>
         </div>
       </div>
     </div>
