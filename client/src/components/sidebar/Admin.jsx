@@ -13,7 +13,7 @@ const Admin = () => {
           href='/admin/dashboard'
         >
           <AiOutlineBarChart size={24} className='mr-3' />
-          Dashboard
+          Thống kê
         </a>
       </li>
       <li className='m-4'>
@@ -22,7 +22,7 @@ const Admin = () => {
           href='/admin/users'
         >
           <FaUserFriends size={24} className='mr-3' />
-          User
+          Người dùng
         </a>
       </li>
       <li className='m-4'>
@@ -31,7 +31,7 @@ const Admin = () => {
           href='/admin/links'
         >
           <MdOutlineLink size={24} className='mr-3' />
-          Link
+          Đường dẫn
         </a>
       </li>
       <li className='m-4'>
@@ -40,7 +40,7 @@ const Admin = () => {
           href='/admin/requests'
         >
           <BsCreditCard2BackFill size={24} className='mr-3' />
-          Request
+          Yêu cầu
         </a>
       </li>
     </ul>

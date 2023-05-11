@@ -100,7 +100,7 @@ const Affiliate = () => {
       <Sidebar />
       <div className='flex-1 flex items-center justify-center bg-[#f7f5f1] py-8'>
         <div className='w-11/12 min-h-[870px] drop-shadow-2xl bg-white rounded-xl items-center justify-start flex flex-col pt-20'>
-          <Title title={'Link Affiliate'} />
+          <Title title={'Link tiếp thị'} />
           <Table
             columns={columns_1}
             dataSource={data}
@@ -110,7 +110,7 @@ const Affiliate = () => {
           <br />
           <br />
           <br />
-          <Title title={'Link đã Affiliate'} />
+          <Title title={'Link đã nhận'} />
           <Table
             columns={columns_2}
             dataSource={data}

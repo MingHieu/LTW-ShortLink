@@ -14,7 +14,7 @@ const User = () => {
           className='no-underline text-black text-xl font-medium flex items-center hover:no-underline'
         >
           <BsHouseFill size={24} className='mr-3' />
-          Dashboard
+          Rút gọn link
         </a>
       </li>
       <li className='m-4'>
@@ -23,16 +23,7 @@ const User = () => {
           className='no-underline text-black text-xl font-medium flex items-center hover:no-underline'
         >
           <MdOutlineLink size={24} className='mr-3' />
-          My URLs
-        </a>
-      </li>
-      <li className='m-4 flex'>
-        <a
-          href='/statistics'
-          className='no-underline text-black text-xl font-medium flex items-center hover:no-underline'
-        >
-          <AiOutlineLineChart size={24} className='mr-3' />
-          Statistics
+          Lịch sử rút gọn
         </a>
       </li>
       <li className='m-4'>
@@ -41,16 +32,7 @@ const User = () => {
           className='no-underline text-black text-xl font-medium flex items-center hover:no-underline'
         >
           <MdLinkOff size={24} className='mr-3' />
-          Link affiliate
-        </a>
-      </li>
-      <li className='m-4'>
-        <a
-          href='/amount'
-          className='no-underline text-black text-xl font-medium flex items-center hover:no-underline'
-        >
-          <FaWallet size={24} className='mr-3' />
-          Amount
+          Tiếp thị liên kết
         </a>
       </li>
       <li className='m-4'>
@@ -59,7 +41,7 @@ const User = () => {
           className='no-underline text-black text-xl font-medium flex items-center hover:no-underline'
         >
           <BiMoneyWithdraw size={24} className='mr-3' />
-          Deposit
+          Yêu cầu nạp/rút tiền
         </a>
       </li>
     </ul>

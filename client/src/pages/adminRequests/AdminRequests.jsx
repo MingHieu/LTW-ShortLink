@@ -100,7 +100,7 @@ const AdminRequests = () => {
   }, [])
 
   const getDetail = (record) => {
-    window.location.href = `requests/detail/${record.id}`
+    window.location.href = `requests/${record.id}`
   }
 
   return (

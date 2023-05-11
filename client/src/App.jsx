@@ -3,7 +3,6 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Login from './pages/login'
 import DashBoard from './pages/dashboard'
 import Deposit from './pages/deposit'
-import Amount from './pages/amount'
 import Statistics from './pages/statistic'
 import AdminLinks from './pages/adminLinks'
 import AdminUsers from './pages/adminUsers'
@@ -51,10 +50,6 @@ const router = createBrowserRouter([
   {
     path: '/link-affiliate',
     element: <Affiliate />
-  },
-  {
-    path: '/amount',
-    element: <Amount />
   },
   {
     path: '/statistics',

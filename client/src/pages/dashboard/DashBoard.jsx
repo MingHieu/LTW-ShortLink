@@ -51,11 +51,11 @@ const DashBoard = () => {
             onFinishFailed={onFinishFailed}
             autoComplete='off'
           >
-            <Form.Item label='Title(optional)' name='title'>
+            <Form.Item label='Tiêu đề' name='title'>
               <Input size='large' />
             </Form.Item>
             <Form.Item
-              label='Destination'
+              label='Đường dẫn'
               name='url'
               required
               rules={[
@@ -69,7 +69,7 @@ const DashBoard = () => {
             </Form.Item>
             <div className={`gap-5 ${isVisibility ? 'flex flex-col' : 'hidden'}`}>
               <Form.Item
-                label='Money'
+                label='Số tiền sẽ trả'
                 name='money'
                 required={isVisibility ? true : false}
                 rules={[
@@ -81,7 +81,7 @@ const DashBoard = () => {
                 <Input type='number' />
               </Form.Item>
               <Form.Item
-                label='Expected Clicks'
+                label='Số lượt click mong muốn'
                 name='expectedClicks'
                 required={isVisibility ? true : false}
                 rules={[
@@ -100,7 +100,7 @@ const DashBoard = () => {
               </Form.Item>
 
               <Button type='primary' htmlType='submit'>
-                Create
+                Rút gọn
               </Button>
             </Form.Item>
           </Form>
