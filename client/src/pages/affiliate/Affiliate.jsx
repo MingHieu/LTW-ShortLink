@@ -109,7 +109,7 @@ const Affiliate = () => {
     }).then(({ data }) => {
       console.log(data)
       setData(
-        data.map((item, index) => ({
+        data.data.map((item, index) => ({
           ...item,
           stt: index + 1,
           links: {
