@@ -1,7 +1,7 @@
 package com.ltw.shorten_link.request;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,6 +29,11 @@ public class RequestController {
     @PostMapping("update")
     public Request update(@Valid @RequestBody UpdateRequestRequest body) {
         return requestService.update(body);
+    }
+
+    @GetMapping("{id}")
+    public Request getOne(@PathVariable Long id) {
+        return requestService.getOne(id);
     }
 
     @PostMapping("all")

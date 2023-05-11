@@ -48,6 +48,11 @@ public class RequestService {
         return requestRepository.save(request);
     }
 
+    public Request getOne(Long id) {
+        Request request = requestRepository.findById(id).get();
+        return request;
+    }
+
     public Pagination<CustomRequest> getManyByUsername(String username, Pagination<CustomRequest> body) {
         User user = userRepository.findByUsername(username);
         List<Request> requests = requestRepository.findAllByUser(user,

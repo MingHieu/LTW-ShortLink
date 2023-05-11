@@ -109,7 +109,7 @@ const AdminRequests = () => {
       <div className='flex-1  flex items-center justify-center bg-[#f7f5f1]'>
         <div className='w-11/12 min-h-[870px] drop-shadow-2xl bg-white rounded-xl items-start justify-center pt-20 px-20'>
           <h2 className='mb-10 text-center text-black font-bold text-4xl'>
-            Payment Requests
+            Yêu cầu
           </h2>
           <Table
             columns={columns}

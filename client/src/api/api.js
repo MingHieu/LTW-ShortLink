@@ -76,5 +76,9 @@ export const getAllRequest = (params) => {
   return apiService.post('/request/all', params)
 }
 
+export const getOneRequest = (id) => {
+  return apiService.get(`/request/${id}`,)
+}
+
 export const createClick = (params, search) =>
   apiService.post(`/click/create${search}`, params)
