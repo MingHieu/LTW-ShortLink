@@ -63,7 +63,7 @@ const Home = () => {
 
       <div className='w-full py-10 px-40 bg-[#f7f5f1] flex items-center flex-col'>
         <Form
-          className={classNames('w-10/12', styles.form)}
+          className={classNames('w-10/12 flex flex-1 gap-5', styles.form)}
           name='basic'
           layout='vertical'
           initialValues={{
@@ -73,30 +73,31 @@ const Home = () => {
           onFinishFailed={onFinishFailed}
           autoComplete='off'
         >
-          <Form.Item className='text-xl form flex' name='url'>
-            <Input placeholder='Your URL'/>
+          <Form.Item className='text-xl flex-1' name='url'>
+            <Input placeholder='Your URL' />
+          </Form.Item>
+          <Form.Item>
             <Button type='primary' htmlType='submit'>
               Create
             </Button>
           </Form.Item>
-          
-          <Form.Item>
-            {shortenLink && (
-              <div className='self-center font-bold'>
-                Your Shorten Link:
-                <a
-                  className='ml-5'
-                  href={`http://localhost:3000/s/${shortenLink}`}
-                  target='_blank'
-                  rel=''
-                  onClick={handleClickShortLink(shortenLink)}
-                >
-                  {location.origin}/s/{shortenLink}
-                </a>
-              </div>
-            )}
-          </Form.Item>
         </Form>
+        <>
+          {shortenLink && (
+            <div className='self-center font-bold'>
+              Your Shorten Link:
+              <a
+                className='ml-5'
+                href={`http://localhost:3000/s/${shortenLink}`}
+                target='_blank'
+                rel=''
+                onClick={handleClickShortLink(shortenLink)}
+              >
+                {location.origin}/s/{shortenLink}
+              </a>
+            </div>
+          )}
+        </>
       </div>
 
       <Space className={classNames('py-10 px-40', styles.stats)}>
