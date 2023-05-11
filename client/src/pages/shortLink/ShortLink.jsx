@@ -1,12 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { createClick, getDetailLinkByCode } from '../../api/api'
 
-const ShortLink = (props) => {
+const ShortLink = () => {
   const { code } = useParams()
+
   useEffect(() => {
-    console.log(code)
-  }, [code])
-  return <div>ShortLink</div>
+    getDetailLinkByCode(code).then((res) => {
+      createClick(
+        {
+          linkId: res.data.id
+        },
+        location.search
+      )
+      location.replace(res.data.url)
+    })
+  }, [])
+
+  return <div></div>
 }
 
 export default ShortLink

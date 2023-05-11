@@ -36,6 +36,10 @@ export const getAllUrls = (params) => {
   return apiService.post(`/link/all`, params)
 }
 
+export const getDetailLinkByCode = (code) => {
+  return apiService.get(`/link/s/${code}`)
+}
+
 export const getDetailLinkById = (id) => {
   return apiService.get(`/link/${id}`)
 }
@@ -67,3 +71,6 @@ export const getUser = (username) => {
 export const getAllRequest = (params) => {
   return apiService.post('request/all', params)
 }
+
+export const createClick = (params, search) =>
+  apiService.post(`/click/create${search}`, params)
