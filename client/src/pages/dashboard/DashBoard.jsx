@@ -67,37 +67,38 @@ const DashBoard = () => {
             >
               <Input />
             </Form.Item>
+            <div className={`gap-5 ${isVisibility ? 'flex flex-col' : 'hidden'}`}>
+              <Form.Item
+                label='Money'
+                name='money'
+                required={isVisibility ? true : false}
+                rules={[
+                  {
+                    message: 'Please input your link!'
+                  }
+                ]}
+              >
+                <Input type='number' />
+              </Form.Item>
+              <Form.Item
+                label='Expected Clicks'
+                name='expectedClicks'
+                required={isVisibility ? true : false}
+                rules={[
+                  {
+                    message: 'Please input your link!'
+                  }
+                ]}
+              >
+                <Input type='number' />
+              </Form.Item>
+            </div>
 
             <Form.Item className={styles.buttonGroup}>
               <Form.Item name='isAffiliate' valuePropName='checked' noStyle>
                 <Checkbox onClick={handleClick}>Is Affiliate</Checkbox>
               </Form.Item>
-              <div className={`gap-5 ${isVisibility ? 'flex' : 'hidden'}`}>
-                <Form.Item
-                  label='Money'
-                  name='money'
-                  required={isVisibility ? true : false}
-                  rules={[
-                    {
-                      message: 'Please input your link!'
-                    }
-                  ]}
-                >
-                  <Input type='number' />
-                </Form.Item>
-                <Form.Item
-                  label='Expected Clicks'
-                  name='expectedClicks'
-                  required={isVisibility ? true : false}
-                  rules={[
-                    {
-                      message: 'Please input your link!'
-                    }
-                  ]}
-                >
-                  <Input type='number' />
-                </Form.Item>
-              </div>
+
               <Button type='primary' htmlType='submit'>
                 Create
               </Button>
