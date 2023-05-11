@@ -16,6 +16,7 @@ import UserDetail from './pages/userDetail/UserDetail'
 import Profile from './pages/profile'
 import ShortLink from './pages/shortLink'
 import Affiliate from './pages/affiliate'
+import RequestDetail from './pages/requestDetail'
 import AdminDashboard from './pages/adminDashboard'
 
 const router = createBrowserRouter([
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
   {
     path: '/admin/requests',
     element: <AdminRequests />
+  },
+  {
+    path: '/admin/requests/:id',
+    element: <RequestDetail />
   },
   {
     path: '/s/:code',
