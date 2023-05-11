@@ -107,16 +107,16 @@ const Amount = () => {
       <Sidebar />
       <div className='flex-1  flex items-center justify-center bg-[#f7f5f1]'>
         <div className='w-11/12 min-h-[870px] drop-shadow-2xl bg-white rounded-xl items-center pt-20 flex flex-col'>
-          <div className='flex flex-col items-center p-5 rounded-md mt-8'>
+          <div className='flex flex-col items-center p-5 rounded-md mt-8 w-5/12'>
             <Title title={'Amount'} />
             <Form
+              className='w-full'
               form={form}
               name='amount-form'
               onFinish={onFinish}
               onFinishFailed={onFinishFailed}
               layout='vertical'
             >
-              <div className='flex gap-8'>
                 <Form.Item label='Card Number' required name='cardNumber'>
                   <Input size='large' />
                 </Form.Item>
@@ -131,7 +131,6 @@ const Amount = () => {
                     <Radio value='DEPOSIT'>DEPOSIT</Radio>
                   </Radio.Group>
                 </Form.Item>
-              </div>
               <Form.Item className='float-right'>
                 <Button type='primary' htmlType='submit' loading={loading}>
                   Submit
