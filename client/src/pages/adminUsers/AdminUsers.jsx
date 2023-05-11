@@ -104,7 +104,7 @@ const AdminUsers = () => {
             columns={columns}
             dataSource={data}
             bordered={true}
-            className={classNames('mx-5', styles.users)}
+            className={classNames('mx-5 w-11/12', styles.users)}
             onRow={(record, rowIndex) => {
               return {
                 onClick: (event) => getDetail(record)

@@ -3,6 +3,7 @@ import React from 'react'
 import styles from './style.module.scss'
 import Sidebar from '../../components/sidebar'
 import { Column } from '@ant-design/charts'
+import Title from '../../components/title'
 
 const data = [
   { month: 'Jan', clicks: 123 },
@@ -50,7 +51,9 @@ const Statistics = () => {
     >
       <Sidebar />
       <div className='flex-1  flex items-center justify-center bg-[#f7f5f1]'>
-        <div className='w-11/12 min-h-[870px] drop-shadow-2xl bg-white rounded-xl items-start justify-center flex pt-20'>
+        <div className='w-11/12 min-h-[870px] drop-shadow-2xl bg-white rounded-xl items-center justify-start flex flex-col pt-20'>
+          <Title title={'Statistics clicks'} />
+
           <div className='w-11/12 '>
             <ClicksChart />
           </div>

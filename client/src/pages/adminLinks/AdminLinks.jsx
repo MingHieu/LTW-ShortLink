@@ -6,6 +6,7 @@ import styles from './style.module.scss'
 import { getAllUrls } from '../../api/api'
 import { encode, formatDate } from '../../api/helper'
 import { DEFAULT_CURRENT, DEFAULT_PAGE_SIZE } from '../../constants/constant'
+import Title from '../../components/title'
 
 const columns = [
   {
@@ -82,9 +83,7 @@ const AdminLinks = () => {
       <Sidebar />
       <div className='flex-1  flex items-center justify-center bg-[#f7f5f1]'>
         <div className='w-11/12 min-h-[870px] drop-shadow-2xl bg-white rounded-xl items-start pt-20'>
-          <h2 className='mb-10 text-center text-black font-bold text-4xl'>
-            Links
-          </h2>
+          <Title title={'Links'} />
           <Table
             columns={columns}
             dataSource={data}

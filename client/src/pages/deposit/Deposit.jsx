@@ -7,6 +7,7 @@ import styles from './style.module.scss'
 import { createRequest, getRequestByUsername } from '../../api/api'
 import { DEFAULT_CURRENT, DEFAULT_PAGE_SIZE } from '../../constants/constant'
 import { formatDate } from '../../api/helper'
+import Title from '../../components/title'
 
 const columns = [
   {
@@ -87,18 +88,20 @@ const Deposit = () => {
     createRequest({
       type: values.type,
       value: Number(values.value)
-    }).then((res) => {
-      setData([
-        ...data,
-        {
-          id: res.data.id,
-          type: res.data.type,
-          status: res.data.status,
-          value: res.data.value,
-          create_at: formatDate(res.data.createAt)
-        }
-      ])
     })
+      .then((res) => {
+        setData([
+          ...data,
+          {
+            id: res.data.id,
+            type: res.data.type,
+            status: res.data.status,
+            value: res.data.value,
+            create_at: formatDate(res.data.createAt)
+          }
+        ])
+      })
+      .then(() => form.resetFields())
   }
 
   const onFinishFailed = (errorInfo) => {
@@ -111,9 +114,7 @@ const Deposit = () => {
       <div className='flex-1 h-full  flex items-center justify-center bg-[#f7f5f1]'>
         <div className='w-11/12 min-h-[870px] drop-shadow-2xl bg-white rounded-xl items-center justify-start flex flex-col pt-20'>
           <div className='flex flex-col items-center p-5 rounded-md mt-8'>
-            <h2 className='self-start font-medium text-2xl mb-8'>
-              Deposit Invoice
-            </h2>
+            <Title title={'Deposit Invoice'} />
             <Form
               form={form}
               name='deposit-form'
@@ -121,20 +122,22 @@ const Deposit = () => {
               onFinishFailed={onFinishFailed}
               layout='vertical'
             >
-              <Form.Item label='Card Number' required name='cardNumber'>
-                <Input size='large' />
-              </Form.Item>
+              <div className='flex gap-8'>
+                <Form.Item label='Card Number' required name='cardNumber'>
+                  <Input size='large' />
+                </Form.Item>
 
-              <Form.Item label='Số tiền thanh toán:' required name='value'>
-                <Input type='number' size='large' />
-              </Form.Item>
+                <Form.Item label='Số tiền thanh toán:' required name='value'>
+                  <Input type='number' size='large' />
+                </Form.Item>
 
-              <Form.Item name='type' label='Phương thức:' required>
-                <Radio.Group>
-                  <Radio value='WITHDRAW'>WITHDRAW</Radio>
-                  <Radio value='DEPOSIT'>DEPOSIT</Radio>
-                </Radio.Group>
-              </Form.Item>
+                <Form.Item name='type' label='Phương thức:' required>
+                  <Radio.Group>
+                    <Radio value='WITHDRAW'>WITHDRAW</Radio>
+                    <Radio value='DEPOSIT'>DEPOSIT</Radio>
+                  </Radio.Group>
+                </Form.Item>
+              </div>
               <Form.Item className='float-right'>
                 <Button type='primary' htmlType='submit' loading={loading}>
                   Submit
@@ -148,7 +151,7 @@ const Deposit = () => {
               columns={columns}
               dataSource={data}
               bordered={true}
-              className={classNames('mx-5 mt-10')}
+              className={classNames('mx-5 mt-10 w-11/12')}
             />
           )}
         </div>

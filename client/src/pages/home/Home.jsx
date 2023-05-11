@@ -8,7 +8,7 @@ import instagram from '../../assets/images/instagram.png'
 import telegram from '../../assets/images/telegram.png'
 import twitter from '../../assets/images/twitter.png'
 import whatsapp from '../../assets/images/whatsapp.png'
-import { createNewLink } from '../../api/api'
+import { createNewLink, getLinkByShortLink } from '../../api/api'
 import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
@@ -21,6 +21,7 @@ const Home = () => {
   }, [])
 
   const [shortenLink, setShortenLink] = useState(null)
+  const [realLink, setRealLink] = useState(null)
 
   const onFinish = (values) => {
     createNewLink({ title: '', isAffiliate: false, url: values.url }).then(
@@ -33,6 +34,12 @@ const Home = () => {
 
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo)
+  }
+
+  const handleClickShortLink = (link) => {
+    getLinkByShortLink(link).then((res) => {
+      setRealLink(res?.data?.url)
+    })
   }
 
   return (
@@ -73,7 +80,10 @@ const Home = () => {
                 Your Shorten Link:
                 <a
                   className='ml-5'
-                  href={`http://localhost:3000/${shortenLink}`}
+                  href={realLink}
+                  target='_blank'
+                  rel=''
+                  onClick={handleClickShortLink(shortenLink)}
                 >
                   http://localhost:3000/s/{shortenLink}
                 </a>
@@ -82,9 +92,9 @@ const Home = () => {
           </Form.Item>
 
           <Form.Item className={styles.buttonGroup}>
-            <Form.Item name='isAffiliate' valuePropName='checked' noStyle>
+            {/* <Form.Item name='isAffiliate' valuePropName='checked' noStyle>
               <Checkbox>Is Affiliate</Checkbox>
-            </Form.Item>
+            </Form.Item> */}
             <Button className='float-left' type='primary' htmlType='submit'>
               Create
             </Button>

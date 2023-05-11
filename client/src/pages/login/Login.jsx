@@ -89,7 +89,7 @@ const Login = () => {
 
         <Form.Item
           className={
-            (classNames('flex flex - col justify - center items - center'),
+            (classNames('flex flex-col justify - center items - center'),
             styles.login)
           }
         >

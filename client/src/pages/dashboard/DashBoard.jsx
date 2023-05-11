@@ -3,16 +3,18 @@ import Sidebar from '../../components/sidebar'
 import { Button, Checkbox, Form, Input, Space } from 'antd'
 import classNames from 'classnames'
 import styles from './style.module.scss'
-import { createNewLink } from '../../api/api'
+import { createNewLink, getLinkByShortLink } from '../../api/api'
+import { useForm } from 'antd/es/form/Form'
 
 const DashBoard = () => {
   const [shortenLink, setShortenLink] = useState(null)
+  const [realLink, setRealLink] = useState(null)
+  const [form] = useForm()
 
   const onFinish = (values) => {
-    console.log('Success:', values)
-    console.log(values)
-
-    // createNewLink(values)
+    createNewLink(values)
+      .then((res) => setShortenLink(res?.data.url))
+      .then(() => form.resetFields())
   }
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo)
@@ -23,18 +25,28 @@ const DashBoard = () => {
     setIsVisibility((prev) => !prev)
   }
 
+  const handleClickShortLink = (link) => {
+    getLinkByShortLink(link).then((res) => {
+      setRealLink(res?.data?.url)
+    })
+  }
+
   return (
     <div className={classNames('min-h-screen h-screen flex', styles.dashboard)}>
       <Sidebar />
       <div className='flex-1  flex items-center justify-center bg-[#f7f5f1]'>
-        <Space className='w-11/12 min-h-[870px] drop-shadow-2xl bg-white rounded-xl items-start pt-20'>
+        <div
+          className='w-11/12 min-h-[870px] drop-shadow-2xl bg-white rounded-xl items-start flex flex-col
+         pt-20'
+        >
           <Form
-            className='w-10/12'
-            name='basic'
+            className='w-10/12 self-center'
+            name='form-dashboard'
             layout='vertical'
             initialValues={{
               remember: true
             }}
+            form={form}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete='off'
@@ -64,10 +76,9 @@ const DashBoard = () => {
                 <Form.Item
                   label='Money'
                   name='money'
-                  required
+                  required={isVisibility ? true : false}
                   rules={[
                     {
-                      required: true,
                       message: 'Please input your link!'
                     }
                   ]}
@@ -77,10 +88,9 @@ const DashBoard = () => {
                 <Form.Item
                   label='Expected Clicks'
                   name='expectedClicks'
-                  required
+                  required={isVisibility ? true : false}
                   rules={[
                     {
-                      required: true,
                       message: 'Please input your link!'
                     }
                   ]}
@@ -93,7 +103,22 @@ const DashBoard = () => {
               </Button>
             </Form.Item>
           </Form>
-        </Space>
+
+          {shortenLink && (
+            <div className='self-center font-bold'>
+              Your Shorten Link:
+              <a
+                className='ml-5'
+                href={realLink}
+                target='_blank'
+                rel=''
+                onClick={handleClickShortLink(shortenLink)}
+              >
+                http://localhost:3000/s/{shortenLink}
+              </a>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )
