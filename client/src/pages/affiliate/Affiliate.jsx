@@ -108,6 +108,18 @@ const Affiliate = () => {
       per_page: 10
     }).then(({ data }) => {
       console.log(data)
+      setData(
+        data.map((item, index) => ({
+          ...item,
+          stt: index + 1,
+          links: {
+            shortLink: encode(item.id),
+            realLink: item.url
+          },
+          moneyPerClick: item.money / item.expectedClicks + ' VND',
+          createAt: formatDate(item.createAt)
+        }))
+      )
     })
 
     getAllMeAffiliateLink().then(({ data }) => {
