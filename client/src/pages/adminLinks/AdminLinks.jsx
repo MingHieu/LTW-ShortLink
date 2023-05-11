@@ -30,7 +30,7 @@ const columns = [
     title: 'Short url',
     dataIndex: 'links',
     key: 'links',
-    render: (_, { links }) => location.origin + '/' + links.shortLink
+    render: (_, { links }) => location.origin + '/s/' + links.shortLink
   },
   {
     title: 'Clicks',

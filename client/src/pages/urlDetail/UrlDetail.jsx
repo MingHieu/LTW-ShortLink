@@ -60,7 +60,7 @@ const urlDetail = () => {
       const url = data?.data
       const newUrl = {
         title: url.title,
-        short_link: location.origin + '/' + encode(url.id),
+        short_link: location.origin + '/s/' + encode(url.id),
         real_link: url.url,
         affiliate: url.affiliate ? 'Link affiliate' : 'Link bình thường',
         user_create: url.user?.name ?? '',

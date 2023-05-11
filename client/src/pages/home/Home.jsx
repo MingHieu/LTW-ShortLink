@@ -73,8 +73,14 @@ const Home = () => {
           onFinishFailed={onFinishFailed}
           autoComplete='off'
         >
-          <Form.Item className='text-xl' label='Destination' name='url'>
-            <Input />
+          <Form.Item className='text-xl form flex' name='url'>
+            <Input placeholder='Your URL'/>
+            <Button type='primary' htmlType='submit'>
+              Create
+            </Button>
+          </Form.Item>
+          
+          <Form.Item>
             {shortenLink && (
               <div className='self-center font-bold'>
                 Your Shorten Link:
@@ -85,19 +91,10 @@ const Home = () => {
                   rel=''
                   onClick={handleClickShortLink(shortenLink)}
                 >
-                  http://localhost:3000/s/{shortenLink}
+                  {location.origin}/s/{shortenLink}
                 </a>
               </div>
             )}
-          </Form.Item>
-
-          <Form.Item className={styles.buttonGroup}>
-            {/* <Form.Item name='isAffiliate' valuePropName='checked' noStyle>
-              <Checkbox>Is Affiliate</Checkbox>
-            </Form.Item> */}
-            <Button className='float-left' type='primary' htmlType='submit'>
-              Create
-            </Button>
           </Form.Item>
         </Form>
       </div>
