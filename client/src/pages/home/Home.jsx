@@ -76,11 +76,11 @@ const Home = () => {
           <Form.Item className='text-xl' label='Destination' name='url'>
             <Input />
             {shortenLink && (
-              <div className='self-start font-bold'>
+              <div className='self-center font-bold'>
                 Your Shorten Link:
                 <a
                   className='ml-5'
-                  href={realLink}
+                  href={`http://localhost:3000/s/${shortenLink}`}
                   target='_blank'
                   rel=''
                   onClick={handleClickShortLink(shortenLink)}
