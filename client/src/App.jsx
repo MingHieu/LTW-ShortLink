@@ -5,9 +5,9 @@ import DashBoard from './pages/dashboard'
 import Deposit from './pages/deposit'
 import Amount from './pages/amount'
 import Statistics from './pages/statistic'
-import AdminUrls from './pages/adminUrls'
-import Users from './pages/users'
-import Payment from './pages/payment'
+import AdminLinks from './pages/adminLinks'
+import AdminUsers from './pages/adminUsers'
+import AdminRequests from './pages/adminRequests'
 import Home from './pages/home'
 import Register from './pages/register'
 import MyUrls from './pages/myUrls'
@@ -16,11 +16,20 @@ import UserDetail from './pages/userDetail/UserDetail'
 import Profile from './pages/profile'
 import ShortLink from './pages/shortLink'
 import Affiliate from './pages/affiliate'
+import AdminDashboard from './pages/adminDashboard'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Home />
+  },
+  {
+    path: '/login',
+    element: <Login />
+  },
+  {
+    path: '/register',
+    element: <Register />
   },
   {
     path: '/profile',
@@ -51,32 +60,28 @@ const router = createBrowserRouter([
     element: <Statistics />
   },
   {
-    path: '/urls',
-    element: <AdminUrls />
+    path: '/admin/dashboard',
+    element: <AdminDashboard />
   },
   {
-    path: '/urls/detail/:id',
-    element: <UrlDetail />
+    path: '/admin/users',
+    element: <AdminUsers />
   },
   {
-    path: '/users',
-    element: <Users />
-  },
-  {
-    path: '/users/detail/:username',
+    path: '/admin/users/detail/:username',
     element: <UserDetail />
   },
   {
-    path: '/payment',
-    element: <Payment />
+    path: '/admin/links',
+    element: <AdminLinks />
   },
   {
-    path: '/login',
-    element: <Login />
+    path: '/links/detail/:id',
+    element: <UrlDetail />
   },
   {
-    path: '/register',
-    element: <Register />
+    path: '/admin/requests',
+    element: <AdminRequests />
   },
   {
     path: '/s/:code',

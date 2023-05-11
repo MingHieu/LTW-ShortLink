@@ -2,6 +2,7 @@ import React from 'react'
 import { BsCreditCard2BackFill } from 'react-icons/bs'
 import { MdOutlineLink } from 'react-icons/md'
 import { FaUserFriends } from 'react-icons/fa'
+import { AiOutlineBarChart } from 'react-icons/ai'
 
 const Admin = () => {
   return (
@@ -9,7 +10,16 @@ const Admin = () => {
       <li className='m-4'>
         <a
           className='no-underline text-black text-xl font-medium flex items-center hover:no-underline'
-          href='users'
+          href='/admin/dashboard'
+        >
+          <AiOutlineBarChart size={24} className='mr-3' />
+          Dashboard
+        </a>
+      </li>
+      <li className='m-4'>
+        <a
+          className='no-underline text-black text-xl font-medium flex items-center hover:no-underline'
+          href='/admin/users'
         >
           <FaUserFriends size={24} className='mr-3' />
           User
@@ -18,19 +28,19 @@ const Admin = () => {
       <li className='m-4'>
         <a
           className='no-underline text-black text-xl font-medium flex items-center hover:no-underline'
-          href='payment'
+          href='/admin/links'
         >
-          <BsCreditCard2BackFill size={24} className='mr-3' />
-          Payment
+          <MdOutlineLink size={24} className='mr-3' />
+          Link
         </a>
       </li>
       <li className='m-4'>
         <a
           className='no-underline text-black text-xl font-medium flex items-center hover:no-underline'
-          href='urls'
+          href='/admin/requests'
         >
-          <MdOutlineLink size={24} className='mr-3' />
-          Urls
+          <BsCreditCard2BackFill size={24} className='mr-3' />
+          Request
         </a>
       </li>
     </ul>

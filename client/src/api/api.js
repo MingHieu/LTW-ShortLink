@@ -69,7 +69,7 @@ export const getUser = (username) => {
 
 // request
 export const getAllRequest = (params) => {
-  return apiService.post('request/all', params)
+  return apiService.post('/request/all', params)
 }
 
 export const createClick = (params, search) =>

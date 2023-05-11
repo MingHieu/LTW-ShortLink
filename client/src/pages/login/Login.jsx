@@ -9,15 +9,25 @@ import { login } from '../../api/api'
 const Login = () => {
   const navigate = useNavigate()
   const token = localStorage.getItem('token')
+  const user = JSON.parse(localStorage.getItem('user'))
+  
   useEffect(() => {
     if (token) {
-      navigate('/dashboard')
+      if (user.role === 'admin') {
+        navigate('/admin/dashboard')
+      } else {
+        navigate('/dashboard')
+      }
     }
   }, [])
 
   const onFinish = (values) => {
-    login(values.username, values.password).then(() => {
-      navigate('/dashboard')
+    login(values.username, values.password).then((res) => {
+      if (res.data.role === 'admin') {
+        navigate('/admin/dashboard')
+      } else {
+        navigate('/dashboard')
+      }
     })
   }
 
