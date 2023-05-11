@@ -122,7 +122,7 @@ public class LinkService {
     }
 
     public Pagination<Link> getAffiliatedList(Pagination<Link> body) {
-        List<Link> links = linkRepository.findAllByAffiliate(true, PageRequest.of(body.page, body.per_page));
+        List<Link> links = linkRepository.findAllByIsAffiliate(true, PageRequest.of(body.page, body.per_page));
         body.setData(links);
         return body;
     }
