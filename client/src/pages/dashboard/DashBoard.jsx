@@ -109,7 +109,7 @@ const DashBoard = () => {
               Your Shorten Link:
               <a
                 className='ml-5'
-                href={realLink}
+                href={`http://localhost:3000/s/${shortenLink}`}
                 target='_blank'
                 rel=''
                 onClick={handleClickShortLink(shortenLink)}
