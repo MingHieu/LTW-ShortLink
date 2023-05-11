@@ -81,16 +81,12 @@ const router = createBrowserRouter([
     element: <UrlDetail />
   },
   {
-    path: '/payment/detail/',
-    element: <RequestDetail />
-  },
-  {
-    path: '/payment/detail/',
-    element: <RequestDetail />
-  },
-  {
     path: '/admin/requests',
     element: <AdminRequests />
+  },
+  {
+    path: '/admin/requests/:id',
+    element: <RequestDetail />
   },
   {
     path: '/s/:code',
