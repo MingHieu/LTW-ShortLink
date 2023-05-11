@@ -8,9 +8,9 @@ import { DEFAULT_CURRENT, DEFAULT_PAGE_SIZE } from '../../constants/constant'
 
 const columns = [
   {
-    title: 'ID',
-    dataIndex: 'id',
-    key: 'id',
+    title: 'STT',
+    dataIndex: 'stt',
+    key: 'stt',
     render: (text) => <a>{text}</a>
   },
   {
@@ -68,8 +68,9 @@ const AdminUsers = () => {
 
   useEffect(() => {
     getAllUsers({ ...pagination }).then((data) => {
-      const newListUser = data?.data?.data?.map((user) => {
+      const newListUser = data?.data?.data?.map((user, index) => {
         const newUser = {
+          stt: index + 1,
           id: user.id,
           username: user.username,
           name: user.name,

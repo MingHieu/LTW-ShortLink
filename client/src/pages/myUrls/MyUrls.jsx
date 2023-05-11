@@ -59,9 +59,10 @@ const MyUrls = () => {
 
   useEffect(() => {
     getAllUrlsByUsername(user.username, { ...pagination }).then((data) => {
-      const newData = data?.data?.data?.map((item) => {
+      const newData = data?.data?.data?.map((item, index) => {
         const newItem = {
           id: item.id,
+          stt: index + 1,
           links: {
             shortLink: encode(item.id),
             realLink: item.url

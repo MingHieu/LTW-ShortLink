@@ -66,33 +66,33 @@ const columns = [
 ]
 
 const data = [
-  {
-    stt: '1',
-    links: {
-      shortLink: 'https://abcdef',
-      realLink: 'https://www.basttu.com'
-    },
-    earnings: 50,
-    create_at: '2023-03-01'
-  },
-  {
-    stt: '2',
-    links: {
-      shortLink: 'https://abcdef',
-      realLink: 'https://www.basttu.com'
-    },
-    earnings: 10,
-    create_at: '2023-03-01'
-  },
-  {
-    stt: '3',
-    links: {
-      shortLink: 'https://abcdef',
-      realLink: 'https://www.basttu.com'
-    },
-    earnings: 10,
-    create_at: '2023-03-01'
-  }
+  // {
+  //   stt: '1',
+  //   links: {
+  //     shortLink: 'https://abcdef',
+  //     realLink: 'https://www.basttu.com'
+  //   },
+  //   earnings: 50,
+  //   create_at: '2023-03-01'
+  // },
+  // {
+  //   stt: '2',
+  //   links: {
+  //     shortLink: 'https://abcdef',
+  //     realLink: 'https://www.basttu.com'
+  //   },
+  //   earnings: 10,
+  //   create_at: '2023-03-01'
+  // },
+  // {
+  //   stt: '3',
+  //   links: {
+  //     shortLink: 'https://abcdef',
+  //     realLink: 'https://www.basttu.com'
+  //   },
+  //   earnings: 10,
+  //   create_at: '2023-03-01'
+  // }
 ]
 
 const Amount = () => {

@@ -6,9 +6,9 @@ import Title from '../../components/title'
 
 const columns_1 = [
   {
-    title: 'ID',
-    dataIndex: 'id',
-    key: 'id'
+    title: 'STT',
+    dataIndex: 'stt',
+    key: 'stt'
   },
   {
     title: 'Short Link',
@@ -53,9 +53,9 @@ const columns_1 = [
 
 const columns_2 = [
   {
-    title: 'ID',
-    dataIndex: 'id',
-    key: 'id'
+    title: 'STT',
+    dataIndex: 'stt',
+    key: 'stt'
   },
   {
     title: 'Short Link',

@@ -10,11 +10,11 @@ import { formatDate } from '../../api/helper'
 import Title from '../../components/title'
 
 const columns = [
-  {
-    title: 'ID',
-    dataIndex: 'id',
-    key: 'id'
-  },
+  // {
+  //   title: 'ID',
+  //   dataIndex: 'id',
+  //   key: 'id'
+  // },
   {
     title: 'Value',
     dataIndex: 'value',

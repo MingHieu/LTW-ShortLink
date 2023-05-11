@@ -10,9 +10,9 @@ import Title from '../../components/title'
 
 const columns = [
   {
-    title: 'ID',
-    dataIndex: 'id',
-    key: 'id',
+    title: 'STT',
+    dataIndex: 'stt',
+    key: 'stt',
     render: (text) => <a>{text}</a>
   },
   {
@@ -53,9 +53,9 @@ const AdminLinks = () => {
 
   useEffect(() => {
     getAllUrls({ ...pagination }).then((data) => {
-      console.log(data)
-      const newUrls = data?.data?.data?.map((url) => {
+      const newUrls = data?.data?.data?.map((url, index) => {
         const newUrl = {
+          stt: index + 1,
           id: url.id,
           links: {
             shortLink: encode(url.id),
