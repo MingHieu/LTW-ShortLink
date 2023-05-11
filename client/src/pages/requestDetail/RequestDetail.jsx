@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import { Button, Card } from 'antd'
 import Images from '../../assets/images'
 import styles from './style.module.scss'
+import { useParams } from 'react-router-dom'
 
 const RequestDetail = () => {
   const fields = [
@@ -49,7 +50,11 @@ const RequestDetail = () => {
 
   const [urlDetail, setUrlDetail] = useState(initial)
 
-  const id = window.location.href.slice(34)
+  const { id } = useParams()
+
+  useEffect(() => {
+    
+  })
 
   return (
     <div className={classNames('w-screen min-h-screen h-screen flex')}>
