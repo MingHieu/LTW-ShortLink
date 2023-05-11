@@ -16,6 +16,7 @@ import UserDetail from './pages/userDetail/UserDetail'
 import Profile from './pages/profile'
 import ShortLink from './pages/shortLink'
 import Affiliate from './pages/affiliate'
+import RequestDetail from './pages/requestDetail'
 
 const router = createBrowserRouter([
   {
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
   {
     path: '/payment',
     element: <Payment />
+  },
+  {
+    path: '/payment/detail/',
+    element: <RequestDetail />
   },
   {
     path: '/login',
