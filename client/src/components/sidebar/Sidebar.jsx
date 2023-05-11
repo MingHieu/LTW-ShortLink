@@ -1,5 +1,6 @@
 import React from 'react'
 import User from './User'
+import { useNavigate } from 'react-router-dom'
 import userAvatar from '../../assets/images/default-user.jpeg'
 import { Button, Space } from 'antd'
 import classNames from 'classnames'
@@ -8,12 +9,14 @@ import Admin from './Admin'
 
 const Sidebar = () => {
   const user = JSON.parse(localStorage.getItem('user'))
+  const navigate = useNavigate()
   const handleClick = () => {
     localStorage.removeItem('token'), localStorage.removeItem('user')
+    navigate('/')
   }
 
   return (
-    <div className='w-[300px] h-full flex justify-between items-center flex-col '>
+    <div className='w-[300px] flex justify-between items-center flex-col sticky top-0 bottom-0 h-screen'>
       <Space
         className={classNames('flex flex-col mt-4 w-full', styles.sidebar)}
       >

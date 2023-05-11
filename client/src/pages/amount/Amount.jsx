@@ -1,8 +1,9 @@
 import classNames from 'classnames'
-import React from 'react'
+import React, { useState } from 'react'
 import Sidebar from '../../components/sidebar'
-import { Table } from 'antd'
+import { Button, Form, Input, Radio, Table } from 'antd'
 import styles from './style.module.scss'
+import Title from '../../components/title'
 
 const columns = [
   {
@@ -95,19 +96,55 @@ const data = [
 ]
 
 const Amount = () => {
+  const [form] = Form.useForm()
+  const [loading, setLoading] = useState(false)
+
+  const onFinish = () => {}
+  const onFinishFailed = () => {}
+
   return (
     <div className={classNames('w-screen min-h-screen h-screen flex')}>
       <Sidebar />
       <div className='flex-1  flex items-center justify-center bg-[#f7f5f1]'>
-        <div className='w-11/12 min-h-[870px] drop-shadow-2xl bg-white rounded-xl items-start pt-20'>
-          <h2 className='mb-10 text-center text-black font-bold text-4xl'>
-            Amount
-          </h2>
+        <div className='w-11/12 min-h-[870px] drop-shadow-2xl bg-white rounded-xl items-center pt-20 flex flex-col'>
+          <div className='flex flex-col items-center p-5 rounded-md mt-8'>
+            <Title title={'Amount'} />
+            <Form
+              form={form}
+              name='amount-form'
+              onFinish={onFinish}
+              onFinishFailed={onFinishFailed}
+              layout='vertical'
+            >
+              <div className='flex gap-8'>
+                <Form.Item label='Card Number' required name='cardNumber'>
+                  <Input size='large' />
+                </Form.Item>
+
+                <Form.Item label='Số tiền thanh toán:' required name='value'>
+                  <Input type='number' size='large' />
+                </Form.Item>
+
+                <Form.Item name='type' label='Phương thức:' required>
+                  <Radio.Group>
+                    <Radio value='WITHDRAW'>WITHDRAW</Radio>
+                    <Radio value='DEPOSIT'>DEPOSIT</Radio>
+                  </Radio.Group>
+                </Form.Item>
+              </div>
+              <Form.Item className='float-right'>
+                <Button type='primary' htmlType='submit' loading={loading}>
+                  Submit
+                </Button>
+              </Form.Item>
+            </Form>
+          </div>
+
           <Table
             columns={columns}
             dataSource={data}
             bordered={true}
-            className={classNames('mx-5', styles.myUrls)}
+            className={classNames('mx-5 w-11/12', styles)}
           />
         </div>
       </div>

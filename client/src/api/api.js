@@ -44,6 +44,10 @@ export const getDetailLinkById = (id) => {
   return apiService.get(`/link/${id}`)
 }
 
+export const getLinkByShortLink = (shortLink) => {
+  return apiService.get(`link/s/${shortLink}`)
+}
+
 // request
 export const createRequest = (params) => {
   return apiService.post('request/create', params)
