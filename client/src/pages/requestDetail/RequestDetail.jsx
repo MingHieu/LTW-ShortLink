@@ -100,14 +100,17 @@ const RequestDetail = () => {
               styles.buttonGroup
             )}
           >
-            <Button className='bg-red-500' onClick={reject}>
-              Từ chối
-            </Button>
-            <Button className='bg-blue-500' onClick={accept}>
-              Xác nhận
-            </Button>
+            {data.status === 'PENDING' ? (
+              <>
+                <Button className='bg-red-500' onClick={reject}>
+                  Từ chối
+                </Button>
+                <Button className='bg-blue-500' onClick={accept}>
+                  Xác nhận
+                </Button>
+              </>
+            ) : null}
           </div>
-          ;
         </div>
       </div>
     </div>

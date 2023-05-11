@@ -39,6 +39,9 @@ const DashBoard = () => {
           className='w-11/12 min-h-[870px] drop-shadow-2xl bg-white rounded-xl items-start flex flex-col
          pt-20'
         >
+          <h2 className='mb-10 text-center text-black font-bold text-4xl self-center'>
+            Rút gọn link
+          </h2>
           <Form
             className='w-10/12 self-center'
             name='form-dashboard'
@@ -67,7 +70,9 @@ const DashBoard = () => {
             >
               <Input />
             </Form.Item>
-            <div className={`gap-5 ${isVisibility ? 'flex flex-col' : 'hidden'}`}>
+            <div
+              className={`gap-5 ${isVisibility ? 'flex flex-col' : 'hidden'}`}
+            >
               <Form.Item
                 label='Số tiền sẽ trả'
                 name='money'
@@ -96,7 +101,7 @@ const DashBoard = () => {
 
             <Form.Item className={styles.buttonGroup}>
               <Form.Item name='isAffiliate' valuePropName='checked' noStyle>
-                <Checkbox onClick={handleClick}>Is Affiliate</Checkbox>
+                <Checkbox onClick={handleClick}>Link tiếp thị</Checkbox>
               </Form.Item>
 
               <Button type='primary' htmlType='submit'>

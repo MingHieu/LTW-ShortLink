@@ -50,13 +50,19 @@ public class LinkController {
         return linkService.getManyByUsername(username, body);
     }
 
+    @GetMapping("affiliate/all/me")
+    public Set<Link> getMeAffiliatedList() {
+        return linkService.getMeAffiliatedList();
+    }
+
+    @PostMapping("affiliate/all")
+    public Pagination<Link> getAffiliatedList(
+            @Valid @RequestBody Pagination<Link> body) {
+        return linkService.getAffiliatedList(body);
+    }
+
     @PostMapping("affiliate/{id}")
     public Link acceptAffiliate(@PathVariable long id) {
         return linkService.acceptAffiliate(id);
-    }
-
-    @GetMapping("affiliate/all")
-    public Set<Link> getAffiliatedList() {
-        return linkService.getAffiliatedList();
     }
 }

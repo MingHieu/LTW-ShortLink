@@ -48,6 +48,17 @@ export const getLinkByShortLink = (shortLink) => {
   return apiService.get(`link/s/${shortLink}`)
 }
 
+export const getAllMeAffiliateLink = () => {
+  return apiService.get(`/link/affiliate/all/me`)
+}
+
+export const getAllAffiliateLink = (params) => {
+  return apiService.post(`/link/affiliate/all`, params)
+}
+export const acceptAffiliate = (id) => {
+  return apiService.post(`/link/affiliate/${id}`)
+}
+
 // request
 export const createRequest = (params) => {
   return apiService.post('request/create', params)
@@ -82,3 +93,6 @@ export const getOneRequest = (id) => {
 
 export const createClick = (params, search) =>
   apiService.post(`/click/create${search}`, params)
+
+export const getDashboard = () =>
+  apiService.get(`/dashboard/all`)

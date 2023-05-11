@@ -10,22 +10,10 @@ import { encode, formatDate } from '../../api/helper'
 
 const columns = [
   {
-    title: 'ID',
-    dataIndex: 'id',
-    key: 'id'
-  },
-  {
-    title: 'Short Link',
-    dataIndex: 'links',
-    key: 'links',
-    render: (_, { links }) => (
-      <div className='flex flex-col'>
-        <a href={links.shortLink} target='_blank' rel='noreferrer'>
-          {links.shortLink}
-        </a>
-        <span className='text-gray-500'>{links.realLink} </span>
-      </div>
-    )
+    title: 'STT',
+    dataIndex: 'stt',
+    key: 'stt',
+    render: (text) => <a>{text}</a>
   },
   {
     title: 'Title',
@@ -33,19 +21,26 @@ const columns = [
     key: 'title'
   },
   {
+    title: 'Url',
+    dataIndex: 'links',
+    key: 'links',
+    render: (_, { links }) => links.realLink
+  },
+  {
+    title: 'Short url',
+    dataIndex: 'links',
+    key: 'links',
+    render: (_, { links }) => location.origin + '/s/' + links.shortLink
+  },
+  {
     title: 'Clicks',
     dataIndex: 'clicks',
     key: 'clicks'
   },
   {
-    title: 'Create At',
-    key: 'create_at',
-    dataIndex: 'create_at'
-  },
-  {
-    title: 'Affiliate',
-    key: 'affiliate',
-    dataIndex: 'affiliate'
+    title: 'Created at',
+    key: 'createdAt',
+    dataIndex: 'createdAt'
   }
 ]
 
@@ -60,19 +55,20 @@ const MyUrls = () => {
   useEffect(() => {
     getAllUrlsByUsername(user.username, { ...pagination }).then((data) => {
       const newData = data?.data?.data?.map((item, index) => {
-        const newItem = {
-          id: item.id,
-          stt: index + 1,
-          links: {
-            shortLink: encode(item.id),
-            realLink: item.url
-          },
-          title: item.title,
-          clicks: item.clicks,
-          create_at: formatDate(item.createdAt),
-          affiliate: item.affiliate
-        }
-        return newItem
+       const newUrl = {
+         stt: index + 1,
+         id: item.id,
+         links: {
+           shortLink: encode(item.id),
+           realLink: item.url
+         },
+         user: item.user?.username,
+         title: item.title,
+         clicks: item.clicks,
+         createdAt: formatDate(item.createdAt),
+         affiliate: item.affiliate
+       }
+        return newUrl
       })
 
       setData(newData)
@@ -86,7 +82,7 @@ const MyUrls = () => {
       <div className='flex-1  flex items-center justify-center bg-[#f7f5f1]'>
         <div className='w-11/12 min-h-[870px] drop-shadow-2xl bg-white rounded-xl items-start pt-20 px-20'>
           <h2 className='mb-10 text-center text-black font-bold text-4xl'>
-            My Urls
+            Lịch sử rút gọn
           </h2>
           <Table
             columns={columns}

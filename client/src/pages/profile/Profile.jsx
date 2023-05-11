@@ -35,7 +35,7 @@ const Profile = () => {
     dateOfBirth: '29/09/1999',
     email: 'example@gmail.com',
     phoneNumber: '0123456789',
-    money: ''
+    money: 0
   }
 
   const [userDetail, setUserDetail] = useState(initial)
@@ -63,7 +63,7 @@ const Profile = () => {
           <Avatar size={200} icon={<img src={Images.avatar} />} />
 
           <Tag className='absolute right-12 top-16 p-3 font-bold text-xl border-none bg-blue-400 drop-shadow-[15px_35px_35px_rgba(62,225,246,0.8)]'>
-            Amount: <span className='text-white'>{userDetail.money}$</span>
+            Amount: <span className='text-white'>{userDetail.money} VND</span>
           </Tag>
 
           <Card

@@ -114,10 +114,16 @@ public class LinkService {
         return link;
     }
 
-    public Set<Link> getAffiliatedList() {
+    public Set<Link> getMeAffiliatedList() {
         JwtUserDetails userDetails = (JwtUserDetails) SecurityContextHolder.getContext().getAuthentication()
                 .getPrincipal();
         User user = userRepository.findByUsername(userDetails.getUsername());
         return linkRepository.findAllAffiliateByUserId(user.getId());
+    }
+
+    public Pagination<Link> getAffiliatedList(Pagination<Link> body) {
+        List<Link> links = linkRepository.findAllByAffiliate(true, PageRequest.of(body.page, body.per_page));
+        body.setData(links);
+        return body;
     }
 }

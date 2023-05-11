@@ -14,4 +14,6 @@ public interface LinkRepository extends JpaRepository<Link, Long> {
 
     @Query(value = "SELECT link FROM Link link JOIN link.usersAffiliated user WHERE user.id = :userId")
     Set<Link> findAllAffiliateByUserId(Long userId);
+
+    List<Link> findAllByAffiliate(boolean isAffiliate, PageRequest pageRequest);
 }
