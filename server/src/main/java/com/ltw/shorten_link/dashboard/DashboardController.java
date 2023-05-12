@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("dashboard")
 public class DashboardController {
-    
+
     @Autowired
     private DashboardService dashboardService;
 
     @GetMapping("all")
-    public Map<String, Object> get(){
+    public Map<String, Object> get() {
         return dashboardService.get();
     }
 }

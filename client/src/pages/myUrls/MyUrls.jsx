@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import Sidebar from '../../components/sidebar'
 import { Table } from 'antd'
 import styles from './style.module.scss'
-import { useQuery } from '@tanstack/react-query'
 import { DEFAULT_CURRENT, DEFAULT_PAGE_SIZE } from '../../constants/constant'
 import { getAllUrlsByUsername } from '../../api/api'
 import { encode, formatDate } from '../../api/helper'
@@ -30,7 +29,15 @@ const columns = [
     title: 'Short url',
     dataIndex: 'links',
     key: 'links',
-    render: (_, { links }) => location.origin + '/s/' + links.shortLink
+    render: (_, { links }) => (
+      <a
+        href={`${location.origin}/s/${links.shortLink}`}
+        target='_blank'
+        rel='noopener'
+      >
+        {`${location.origin}/s/${links.shortLink}`}
+      </a>
+    )
   },
   {
     title: 'Clicks',
@@ -55,26 +62,25 @@ const MyUrls = () => {
   useEffect(() => {
     getAllUrlsByUsername(user.username, { ...pagination }).then((data) => {
       const newData = data?.data?.data?.map((item, index) => {
-       const newUrl = {
-         stt: index + 1,
-         id: item.id,
-         links: {
-           shortLink: encode(item.id),
-           realLink: item.url
-         },
-         user: item.user?.username,
-         title: item.title,
-         clicks: item.clicks,
-         createdAt: formatDate(item.createdAt),
-         affiliate: item.affiliate
-       }
+        const newUrl = {
+          stt: index + 1,
+          id: item.id,
+          links: {
+            shortLink: encode(item.id),
+            realLink: item.url
+          },
+          user: item.user?.username,
+          title: item.title,
+          clicks: item.clicks,
+          createdAt: formatDate(item.createdAt),
+          affiliate: item.affiliate
+        }
         return newUrl
       })
 
       setData(newData)
     })
   }, [])
-
 
   return (
     <div className={classNames('w-screen min-h-screen h-screen flex')}>
