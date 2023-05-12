@@ -20,6 +20,10 @@ const columns = [
     dataIndex: 'type',
     key: 'type'
   },
+
+
+
+  
   {
     title: 'Create At',
     dataIndex: 'create_at',
